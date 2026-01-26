@@ -9,19 +9,19 @@ nav a {
 }
 
 /* Home：黒背景・白文字 */
-.nav-ホーム {
+.nav-home {
   background-color: #000;
   color: #fff;
 }
 
 /* About：濃い青背景・黒文字 */
-.nav-TERUについて {
+.nav-about {
   background-color: #0a1f33;
   color: #000;
 }
 
 /* 楽曲集：黒背景・白文字 */
-.nav-楽曲・効果音 {
+.nav-music {
   background-color: #000;
   color: #fff;
 }
