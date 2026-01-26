@@ -3,7 +3,7 @@ p {
 }
 
 nav a {
-  padding: 10px 25px;
+  padding: 15px 25px;
   text-decoration: none;
   font-weight: bold;
 }
@@ -14,14 +14,26 @@ nav a {
   color: #fff;
 }
 
-/* About：濃い青背景・黒文字 */
+/* About：濃い青背景・白文字 */
 .nav-about {
-  background-color: #0a1f33;
+  background-color: #405d6c;
   color: #fff;
 }
 
 /* 楽曲集：黒背景・白文字 */
 .nav-music {
   background-color: #000;
+  color: #fff;
+}
+
+/* 『カッコウの巣立ち』：濃い青背景・白文字 */
+.nav-kakosuda {
+  background-color: #405d6c;
+  color: #fff;
+}
+
+/* 新着情報：赤・白文字 */
+.nav-newinfo {
+  background-color: #ff3f2f;
   color: #fff;
 }
