@@ -70,3 +70,8 @@ body {
 .download-button:hover {
   background-color: #444;
 }
+
+audio {
+  width: 300px;
+  margin: 10px 0;
+}
