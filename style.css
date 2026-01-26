@@ -1,3 +1,27 @@
 p {
   color: #111111;
 }
+
+nav a {
+  padding: 10px 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Home：黒背景・白文字 */
+.nav-home {
+  background-color: #000;
+  color: #fff;
+}
+
+/* About：濃い青背景・黒文字 */
+.nav-about {
+  background-color: #0a1f33;
+  color: #000;
+}
+
+/* 楽曲集：黒背景・白文字 */
+.nav-music {
+  background-color: #000;
+  color: #fff;
+}
