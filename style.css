@@ -15,13 +15,13 @@ nav a {
 }
 
 /* About：濃い青背景・黒文字 */
-.nav-about {
+.nav-TERUについて {
   background-color: #0a1f33;
   color: #000;
 }
 
 /* 楽曲集：黒背景・白文字 */
-.nav-music {
+.nav-楽曲・効果音 {
   background-color: #000;
   color: #fff;
 }
