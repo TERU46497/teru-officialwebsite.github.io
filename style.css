@@ -96,20 +96,3 @@ audio {
 .color-set {
   color: #BA0C19;
 }
-
-.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* 左と右に分ける */
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.site-logo {
-  width: 50px;
-  height: auto;
-}
