@@ -156,3 +156,31 @@ audio {
     display: none;
   }
 }
+
+.fade-item {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.fade-section.show .fade-item {
+  opacity: 1;
+}
+
+/* 画像はすぐ */
+.fade-img {
+  transition-delay: 0s;
+}
+
+/* 文字だけ遅らせる */
+.fade-text {
+  transition-delay: 0.3s; /* ←ここがラグ */
+}
+
+.fade-text {
+  transform: translateY(10px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-section.show .fade-text {
+  transform: translateY(0);
+}
