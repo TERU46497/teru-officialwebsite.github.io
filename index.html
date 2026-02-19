@@ -30,6 +30,31 @@
       <p>主にワールド制作・ギミック設計。</p>
     </div>
 
+    <section class="fade-section">
+      <img src="images/sample.jpg" class="fade-item fade-img">
+      <p class="fade-item fade-text">
+        TERUはVRChatで創作活動をしています。
+      </p>
+    </section>
+
+    <script>
+      const targets = document.querySelectorAll('.fade-section');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+
+      targets.forEach(target => {
+        observer.observe(target);
+      });
+    </script>
+
     <script>
       const btn = document.querySelector('.dropdown-btn');
       const content = document.querySelector('.dropdown-content');
