@@ -139,3 +139,13 @@ audio {
   letter-spacing: 2px;
   margin: 12px 0;
 }
+
+.dropdown-btn {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+}
