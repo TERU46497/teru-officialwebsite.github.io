@@ -136,6 +136,32 @@
             ----------------------------------------------------------------------------------------
         </div>
     </p>
+
+    <section class="fade-section">
+      <img src="images/AtamaNoUeNoKokkosan" class="fade-item fade-img">
+      <p class="fade-item fade-text">
+        TERUはVRChatで創作活動をしています。
+      </p>
+    </section>
+
+    <script>
+      const targets = document.querySelectorAll('.fade-section');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, {
+        threshold: 0.5
+      });
+
+      targets.forEach(target => {
+        observer.observe(target);
+      });
+    </script>
+
 </body>
 <footer>
     <h2>お問い合わせ先：</h2>
