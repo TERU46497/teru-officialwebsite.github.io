@@ -24,6 +24,22 @@
     <h1>ホーム</h1>
     <p>こちらのウェブサイトはTERUが創り上げたゲーム、3Dモデル、音楽が一覧できるいわばポートフォリオの役割を担っているページです。</p>
 
+    <button class="dropdown-btn">活動内容</button>
+    <div class="dropdown-content">
+      <p>TERUはVRChatで創作活動をしています。</p>
+      <p>主にワールド制作・ギミック設計。</p>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.dropdown-btn');
+      const content = document.querySelector('.dropdown-content');
+
+      btn.addEventListener('click', () => {
+        content.style.display =
+          content.style.display === 'block' ? 'none' : 'block';
+      });
+    </script>
+    
     <h2>目次:</h2>
     <ul>
         <li><a href="AboutTERU.html">TERUについて</a></li>
