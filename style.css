@@ -149,3 +149,14 @@ audio {
   display: none;
   margin-top: 10px;
 }
+
+.dropdown-content {
+  display: block;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+  .dropdown-content {
+    display: none;
+  }
+}
