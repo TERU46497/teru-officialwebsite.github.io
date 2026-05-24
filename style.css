@@ -5,11 +5,13 @@ p {
 
 h1 {
   color: #111111;
+  margin-left: 25px;
 }
 
 h3 {
   background-color: #000;
   color:#fff;
+  margin-left: 25px;
 }
 
 nav a {
