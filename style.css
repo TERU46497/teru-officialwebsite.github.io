@@ -3,7 +3,7 @@ p {
   margin-left: 25px;
 }
 
-p3 {
+p1 {
   color: #FFFFFF;
   margin-left: 50px;
 }
@@ -219,7 +219,7 @@ html{
    Hero
 =========================== */
 
-.hero{
+.kakosudaTop{
 
     width:100%;
 
@@ -233,16 +233,13 @@ html{
 
 }
 
-.hero-image{
+.kakosudaTop-image{
 
     width:100%;
 
     height:100%;
 
     object-fit:cover;
-
-    display:block;
-
 }
 
 
@@ -298,7 +295,7 @@ html{
 
     width:min(900px,90%);
 
-    margin:auto;
+    margin: 40px auto;
 
     border-radius:18px;
 
