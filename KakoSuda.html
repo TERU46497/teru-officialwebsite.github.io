@@ -23,6 +23,25 @@
   </header>
     <h1>『カッコウの巣立ち』</h1>
     <p>VRChatで遊べるゲームワールド『カッコウの巣立ち』に関するページです</p>
+
+    <button onclick="scrollToSection('features')">
+    Featuresへ
+    </button>
+
+    <!-- 途中は省略 -->
+
+    <section id="features">
+        <h2>Features</h2>
+        <p>ここが飛び先です。</p>
+    </section>
+
+    <script>
+      function scrollToSection(id) {
+          document.getElementById(id).scrollIntoView({
+              behavior: "smooth"
+          });
+      }
+    </script>
 </body>
 <footer>
     <h2>お問い合わせ先：</h2>
