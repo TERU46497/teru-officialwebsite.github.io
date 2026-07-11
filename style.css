@@ -181,25 +181,24 @@ audio {
 }
 
 .character-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
 .text-area{
-    flex:1;
+    flex: 2;
 }
 
-.text-area hr{
-    margin:20px 0;
-    border:none;
-    border-top:2px solid #666;
+.character-image{
+    flex: 1;
 }
 
-.character-card img{
-    width:250px;
-    border-radius:10px;
+.character-image img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
 }
 
 html{
