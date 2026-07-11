@@ -164,8 +164,10 @@ audio {
 }
 
 .character-card{
-    width:2500px;
-    margin:auto;
+    width: 70%;
+    max-width: 1500px;
+    min-width: 350px;
+    margin: 40px auto;
     padding:30px;
 
     background:#FFFFFF;
