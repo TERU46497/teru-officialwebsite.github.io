@@ -235,6 +235,8 @@ html{
 
 }
 
+
+
 @keyframes heroFade{
 
     from{
@@ -251,6 +253,186 @@ html{
 
 }
 
+/* ===========================
+   スクロールフェード
+=========================== */
+
+.fade-section{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.fade-section.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* ===========================
+   動画
+=========================== */
+
+.video-container{
+
+    width:min(900px,90%);
+
+    margin:auto;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 15px 45px rgba(0,0,0,.45);
+
+}
+
+.video-container iframe{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    border:none;
+
+}
+
+
+/* ===========================
+   目次
+=========================== */
+
+.menu-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+.menu-card{
+
+    background:#1b1b1b;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-decoration:none;
+
+    color:white;
+
+    text-align:center;
+
+    transition:.3s;
+
+    border:1px solid #303030;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#242424;
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.menu-card img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:contain;
+
+    margin-bottom:20px;
+
+}
+
+.menu-card span{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+
+/* ===========================
+   Story
+=========================== */
+
+#story{
+
+    background:#131313;
+
+}
+
+#story p{
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+
+/* ===========================
+   Character
+=========================== */
+
+#characters{
+
+    background:#101010;
+
+}
+
+
+/* ===========================
+   Credits
+=========================== */
+
+#credits{
+
+    background:#171717;
+
+}
+
+
+/* ===========================
+   Music
+=========================== */
+
+#music{
+
+    background:#101010;
+
+}
 
 
 /* スマホ */
