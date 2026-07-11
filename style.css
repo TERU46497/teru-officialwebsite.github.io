@@ -80,7 +80,7 @@ nav a {
 }
 
 /* 新着情報：赤・白文字 */
-.nav-newinfo {
+.nav-order {
   background-color: #ff3f2f;
   color: #fff;
 }
@@ -171,7 +171,7 @@ audio {
   padding-bottom: 5px;
 }
 
-.content{
+.content1{
 
     max-width:900px;
 
