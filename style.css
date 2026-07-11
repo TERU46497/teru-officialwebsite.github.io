@@ -163,6 +163,43 @@ audio {
   margin-top: 10px;
 }
 
+.character-card{
+    width:900px;
+    margin:auto;
+    padding:30px;
+
+    background:#1e1e1e;
+    border:2px solid #666;
+    border-radius:15px;
+
+    color:white;
+
+    /* 影 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.character-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.text-area{
+    flex:1;
+}
+
+.text-area hr{
+    margin:20px 0;
+    border:none;
+    border-top:2px solid #666;
+}
+
+.character-card img{
+    width:250px;
+    border-radius:10px;
+}
+
 /* スマホ */
 @media (max-width: 600px) {
   .dropdown-content {
