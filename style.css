@@ -202,6 +202,10 @@ audio {
     border-radius:10px;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* スマホ */
 @media (max-width: 600px) {
   .dropdown-content {
