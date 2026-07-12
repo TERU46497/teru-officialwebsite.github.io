@@ -244,31 +244,24 @@ html{
 =========================== */
 
 .kakosudaTop{
-
     width:100%;
-
     height:100vh;
 
-    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
+    background:#000;
     opacity:0;
-
     animation:heroFade 3s ease forwards;
-
 }
 
 .kakosudaTop-image{
-
     width:100%;
-
     height:100%;
 
-    object-fit:cover;
-
-    display:block;
+    object-fit:contain;
 }
-
-
 
 @keyframes heroFade{
 
