@@ -515,3 +515,391 @@ html{
 .fade-section.show .fade-text {
   transform: translateY(0);
 }
+
+/* ===========================
+OST PLAYER
+=========================== */
+
+#music {
+position: relative;
+overflow: hidden;
+background: #080808;
+color: white;
+min-height: 900px;
+padding-top: 100px;
+padding-bottom: 120px;
+}
+
+/* OSTプレイヤー */
+
+.ost-player {
+
+
+position: relative;
+
+width: min(1200px, 90%);
+
+min-height: 700px;
+
+margin: 60px auto;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+overflow: hidden;
+
+border-radius: 25px;
+
+background: #000;
+
+box-shadow:
+    0 20px 60px rgba(0,0,0,.6);
+
+
+}
+
+/* ===========================
+背景
+=========================== */
+
+.ost-background {
+
+
+position: absolute;
+
+inset: 0;
+
+background-image:
+    url("images/OST_TheDungeon.png");
+
+background-size: cover;
+
+background-position: center;
+
+opacity: .22;
+
+filter: blur(5px);
+
+transform: scale(1.08);
+
+transition:
+    background-image .6s ease,
+    opacity .6s ease;
+
+
+}
+
+/* 背景の暗幕 */
+
+.ost-player::after {
+
+
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.8),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.8)
+    );
+
+pointer-events: none;
+
+
+}
+
+/* ===========================
+OST中央
+=========================== */
+
+.ost-content {
+
+
+position: relative;
+
+z-index: 2;
+
+width: min(800px, 75%);
+
+text-align: center;
+
+
+}
+
+/* 曲番号 */
+
+.ost-number {
+
+
+font-size: 18px;
+
+letter-spacing: 4px;
+
+color: rgba(255,255,255,.6);
+
+margin-bottom: 15px;
+
+
+}
+
+/* 曲タイトル */
+
+.ost-content h2 {
+
+
+color: white;
+
+font-size: clamp(30px, 5vw, 55px);
+
+letter-spacing: 3px;
+
+margin: 10px 0 35px;
+
+text-shadow:
+    0 4px 20px rgba(0,0,0,.8);
+
+
+}
+
+/* ===========================
+YouTube
+=========================== */
+
+.ost-video {
+
+width: 100%;
+
+overflow: hidden;
+
+border-radius: 15px;
+
+box-shadow:
+    0 15px 40px rgba(0,0,0,.6);
+
+}
+
+.ost-video iframe {
+
+width: 100%;
+
+aspect-ratio: 16 / 9;
+
+display: block;
+
+border: none;
+
+}
+
+/* ===========================
+Audio
+=========================== */
+
+.ost-content audio {
+
+
+width: 100%;
+
+margin-top: 25px;
+
+
+}
+
+/* ===========================
+左右矢印
+=========================== */
+
+.ost-arrow {
+
+
+position: absolute;
+
+top: 50%;
+
+transform: translateY(-50%);
+
+z-index: 5;
+
+width: 70px;
+
+height: 70px;
+
+border-radius: 50%;
+
+border: 1px solid rgba(255,255,255,.4);
+
+background: rgba(0,0,0,.45);
+
+color: white;
+
+font-size: 35px;
+
+cursor: pointer;
+
+transition:
+    background .3s ease,
+    transform .3s ease,
+    border-color .3s ease;
+
+
+}
+
+.ost-arrow:hover {
+
+
+background: rgba(255,255,255,.2);
+
+border-color: white;
+
+
+}
+
+.ost-prev {
+
+
+left: 30px;
+
+
+}
+
+.ost-next {
+
+
+right: 30px;
+
+
+}
+
+/* ===========================
+スライドアニメーション
+=========================== */
+
+.slide-left .ost-content {
+
+
+animation:
+    ostSlideLeft .5s ease;
+
+
+}
+
+.slide-right .ost-content {
+
+
+animation:
+    ostSlideRight .5s ease;
+
+
+}
+
+@keyframes ostSlideLeft {
+
+
+0% {
+
+    opacity: 0;
+
+    transform:
+        translateX(100px);
+
+}
+
+100% {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+}
+
+@keyframes ostSlideRight {
+
+
+0% {
+
+    opacity: 0;
+
+    transform:
+        translateX(-100px);
+
+}
+
+100% {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+}
+
+/* ===========================
+スマホ
+=========================== */
+
+@media (max-width: 700px) {
+
+
+.ost-player {
+
+    min-height: 600px;
+
+    width: 95%;
+
+}
+
+
+.ost-content {
+
+    width: 80%;
+
+}
+
+
+.ost-arrow {
+
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 25px;
+
+}
+
+
+.ost-prev {
+
+    left: 10px;
+
+}
+
+
+.ost-next {
+
+    right: 10px;
+
+}
+
+
+.ost-content h2 {
+
+    font-size: 28px;
+
+}
+
+
+}

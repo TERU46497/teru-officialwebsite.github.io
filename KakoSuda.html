@@ -334,123 +334,56 @@
 
         <!-- 途中は省略 -->
 
-    <section1 id="music">
-        <h1>音楽：</h1>
-        <h2>「カッコウの巣立ち」OST</h2>
+    <section id="music">
 
-        <p>---------------------------------------------------------------</p>
-        <p>The Dungeon</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/TheDungeon.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Asynchronous</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/Asynchronous.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>tH3 Fün g4Me</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/tH3 Fün g4Me.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Labor Town</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/LaborTown.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Chinpilas</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/Chinpilas.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Battle!!</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/Battle!!.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Despair</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/Despair.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Death</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/Death.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Final Battle</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/FinalBattle.wav" type="audio/wav">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-        <p>Regret</p><br>
-        <iframe
-                src="https://www.youtube.com/embed/動画ID"
-                title="YouTube video player"
-                frameborder="0"
-                allowfullscreen>
-        </iframe><br>
-        <audio controls>
-            <source src="Sound/Regret.mp3" type="audio/mp3">
-        </audio><br>
-        <p>---------------------------------------------------------------</p>
-    </section1>
+    <h1>音楽：</h1>
+    <h2>「カッコウの巣立ち」OST</h2>
 
+    <div class="ost-player">
+
+        <!-- 背景画像 -->
+        <div class="ost-background"></div>
+
+        <!-- 左矢印 -->
+        <button class="ost-arrow ost-prev" aria-label="前の曲">
+            &#10094;
+        </button>
+
+        <!-- OST本体 -->
+        <div class="ost-content">
+
+            <div class="ost-number">
+                <span id="ost-current">01</span>
+                /
+                <span id="ost-total">10</span>
+            </div>
+
+            <h2 id="ost-title">The Dungeon</h2>
+
+            <div class="ost-video">
+                <iframe
+                    id="ost-youtube"
+                    src="https://www.youtube.com/embed/動画ID"
+                    title="YouTube video player"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <audio id="ost-audio" controls>
+                <source src="Sound/TheDungeon.wav" type="audio/wav">
+            </audio>
+
+        </div>
+
+        <!-- 右矢印 -->
+        <button class="ost-arrow ost-next" aria-label="次の曲">
+            &#10095;
+        </button>
+
+    </div>
+    </section>
+
+    <script> const ostTracks = [ { title: "The Dungeon", youtube: "動画ID", audio: "Sound/TheDungeon.wav", background: "images/OST_TheDungeon.png" }, { title: "Asynchronous", youtube: "動画ID", audio: "Sound/Asynchronous.wav", background: "images/OST_Asynchronous.png" }, { title: "tH3 Fün g4Me", youtube: "動画ID", audio: "Sound/tH3 Fün g4Me.wav", background: "images/OST_FunGame.png" }, { title: "Labor Town", youtube: "動画ID", audio: "Sound/LaborTown.wav", background: "images/OST_LaborTown.png" }, { title: "Chinpilas", youtube: "動画ID", audio: "Sound/Chinpilas.wav", background: "images/OST_Chinpilas.png" }, { title: "Battle!!", youtube: "動画ID", audio: "Sound/Battle!!.wav", background: "images/OST_Battle.png" }, { title: "Despair", youtube: "動画ID", audio: "Sound/Despair.wav", background: "images/OST_Despair.png" }, { title: "Death", youtube: "動画ID", audio: "Sound/Death.wav", background: "images/OST_Death.png" }, { title: "Final Battle", youtube: "動画ID", audio: "Sound/FinalBattle.wav", background: "images/OST_FinalBattle.png" }, { title: "Regret", youtube: "動画ID", audio: "Sound/Regret.mp3", background: "images/OST_Regret.png" } ]; let currentOst = 0; const ostPlayer = document.querySelector(".ost-player"); const ostBackground = document.querySelector(".ost-background"); const ostTitle = document.getElementById("ost-title"); const ostYoutube = document.getElementById("ost-youtube"); const ostAudio = document.getElementById("ost-audio"); const ostCurrent = document.getElementById("ost-current"); const ostTotal = document.getElementById("ost-total"); const prevButton = document.querySelector(".ost-prev"); const nextButton = document.querySelector(".ost-next"); ostTotal.textContent = String(ostTracks.length).padStart(2, "0"); function updateOst(index, direction) { const track = ostTracks[index]; // スライドアニメーション ostPlayer.classList.remove("slide-left"); ostPlayer.classList.remove("slide-right"); // 再描画を強制してアニメーションをリセット void ostPlayer.offsetWidth; if (direction === "next") { ostPlayer.classList.add("slide-left"); } else { ostPlayer.classList.add("slide-right"); } // 曲情報更新 ostTitle.textContent = track.title; ostCurrent.textContent = String(index + 1).padStart(2, "0"); // YouTube ostYoutube.src = "https://www.youtube.com/embed/" + track.youtube; // Audio ostAudio.src = track.audio; // 曲変更時は停止 ostAudio.pause(); // 背景画像 ostBackground.style.backgroundImage = `url("${track.background}")`; } nextButton.addEventListener("click", () => { currentOst++; if (currentOst >= ostTracks.length) { currentOst = 0; } updateOst(currentOst, "next"); }); prevButton.addEventListener("click", () => { currentOst--; if (currentOst < 0) { currentOst = ostTracks.length - 1; } updateOst(currentOst, "prev"); }); // 初期表示 updateOst(currentOst, "next"); </script>
     <hr>
     
     <section1 id="credits">
@@ -527,7 +460,7 @@
                     <hr>
 
                     <p><strong>ニコニコ動画：</strong>
-                    <a href="https://x.com/nameSnow66">@羊な者</a><br>
+                    <a href="https://www.nicovideo.jp/user/130471427">@羊な者</a><br>
 
                 </div>
 
