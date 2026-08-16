@@ -270,69 +270,60 @@
              BGM
         =============================== -->
 
-        <div class="order-category">
+        <div class="order-special-card">
 
-            <h3 class="order-category-title">
-                BGM
-            </h3>
+            <img
+                src="images/order/bgm.jpg"
+                alt="BGM制作"
+            >
 
+            <div class="option-info">
 
-            <div class="order-special-card">
+                <h4>BGM制作</h4>
 
-                <img
-                    src="images/order/bgm.jpg"
-                    alt="BGM制作"
-                >
+                <p>
+                    0〜1分：¥1,000<br>
+                    1分増えるごとに+¥200
+                </p>
 
-                <div class="option-info">
+                <div class="counter">
 
-                    <h4>
-                        BGM制作
-                    </h4>
+                    <button
+                        type="button"
+                        class="counter-minus"
+                        data-counter="bgm"
+                    >
+                        −
+                    </button>
 
-                    <p>
-                        0〜1分：¥1,000<br>
-                        1分増えるごとに+¥200
-                    </p>
+                    <span id="bgmMinutes">
+                        0〜1分
+                    </span>
 
-
-                    <div class="counter">
-
-                        <button
-                            type="button"
-                            class="counter-minus"
-                            data-counter="bgm"
-                        >
-                            −
-                        </button>
-
-                        <span
-                            id="bgmMinutes"
-                        >
-                            0〜1分
-                        </span>
-
-                        <button
-                            type="button"
-                            class="counter-plus"
-                            data-counter="bgm"
-                        >
-                            ＋
-                        </button>
-
-                    </div>
-
-
-                    <strong id="bgmPrice">
-                        ¥1,000
-                    </strong>
+                    <button
+                        type="button"
+                        class="counter-plus"
+                        data-counter="bgm"
+                    >
+                        ＋
+                    </button>
 
                 </div>
 
+                <strong id="bgmPrice">
+                    ¥1,000
+                </strong>
+
             </div>
 
-        </div>
+            <!-- BGM選択チェック -->
+            <input
+                type="checkbox"
+                id="bgmCheck"
+                class="option-check"
+            >
 
+        </div>
 
 
         <!-- ==============================
@@ -767,508 +758,636 @@
     </section>
 
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
 
-        /* =========================================
-          依頼見積システム
-        ========================================= */
+          /* =========================================
+            依頼見積システム
+          ========================================= */
 
+          let bgmMinutes = 0;
 
-        /* =========================================
-          変数
-        ========================================= */
 
-        let bgmMinutes = 0;
-        let bgmSelected = false;
+          /* =========================================
+            見積金額計算
+          ========================================= */
 
+          function calculateTotal() {
 
-        /* =========================================
-          見積金額を更新
-        ========================================= */
+              let total = 0;
 
-        function calculateTotal() {
 
-            let total = 0;
+              /* =====================================
+                通常のカード
+              ===================================== */
 
+              document.querySelectorAll(".order-option").forEach(option => {
 
-            /* =====================================
-              通常のチェックカード
-            ===================================== */
+                  const checkbox =
+                      option.querySelector(".option-check");
 
-            document.querySelectorAll(".order-option").forEach(option => {
+                  if (!checkbox || !checkbox.checked) {
+                      return;
+                  }
 
-                const checkbox =
-                    option.querySelector(".option-check");
 
-                // チェックボックスがないカードは無視
-                if (!checkbox) {
-                    return;
-                }
+                  const price =
+                      Number(option.dataset.price) || 0;
 
-                // チェックされていなければ無視
-                if (!checkbox.checked) {
-                    return;
-                }
 
+                  /* ---------------------------------
+                    数量付きカード
+                  --------------------------------- */
 
-                const price =
-                    Number(option.dataset.price) || 0;
+                  const quantityElement =
+                      option.querySelector(".quantity");
 
 
-                /* ---------------------------------
-                  数量付きカード
-                --------------------------------- */
+                  if (quantityElement) {
 
-                const quantityElement =
-                    option.querySelector(".quantity");
+                      const quantity =
+                          Number(quantityElement.textContent) || 0;
 
 
-                if (quantityElement) {
+                      total += price * quantity;
 
-                    const quantity =
-                        Number(quantityElement.textContent) || 0;
+                  }
 
-                    total += price * quantity;
+                  /* ---------------------------------
+                    通常カード
+                  --------------------------------- */
 
-                }
+                  else {
 
+                      total += price;
 
-                /* ---------------------------------
-                  通常カード
-                --------------------------------- */
+                  }
 
-                else {
+              });
 
-                    total += price;
 
-                }
+              /* =====================================
+                BGM
+              ===================================== */
 
-            });
+              const bgmCheck =
+                  document.getElementById("bgmCheck");
 
 
-            /* =====================================
-              BGM
-            ===================================== */
+              /*
+                  BGMはチェックされている時だけ
+                  見積金額に追加する
+              */
 
-            if (bgmSelected) {
+              if (bgmCheck && bgmCheck.checked) {
 
-                /*
-                    0〜1分 = 1000円
-                    1〜2分 = 1200円
-                    2〜3分 = 1400円
-                    3〜4分 = 1600円
-                    ...
-                */
+                  total +=
+                      1000 + (bgmMinutes * 200);
 
-                total +=
-                    1000 + (bgmMinutes * 200);
+              }
 
-            }
 
+              /* =====================================
+                金額表示
+              ===================================== */
 
-            /* =====================================
-              表示
-            ===================================== */
+              const estimatePrice =
+                  document.getElementById("estimatePrice");
 
-            const estimatePrice =
-                document.getElementById("estimatePrice");
 
+              if (estimatePrice) {
 
-            if (estimatePrice) {
+                  estimatePrice.textContent =
+                      "¥" + total.toLocaleString();
 
-                estimatePrice.textContent =
-                    "¥" + total.toLocaleString();
+              }
 
-            }
+          }
 
-        }
 
+          /* =========================================
+            通常カードの選択
+          ========================================= */
 
-        /* =========================================
-          通常カード
-        ========================================= */
+          document.querySelectorAll(".order-option").forEach(option => {
 
-        document.querySelectorAll(".order-option").forEach(option => {
+              const checkbox =
+                  option.querySelector(".option-check");
 
-            const checkbox =
-                option.querySelector(".option-check");
 
+              if (!checkbox) {
+                  return;
+              }
 
-            if (!checkbox) {
-                return;
-            }
 
+              /* -------------------------------------
+                カードクリック
+              ------------------------------------- */
 
-            /* -------------------------------------
-              カードをクリック
-            ------------------------------------- */
+              option.addEventListener("click", event => {
 
-            option.addEventListener("click", event => {
+                  /*
+                      チェックボックスを直接押した場合
+                  */
 
-                /*
-                    チェックボックスを直接押した場合は
-                    changeイベントに任せる
-                */
+                  if (event.target === checkbox) {
+                      return;
+                  }
 
-                if (event.target === checkbox) {
-                    return;
-                }
 
+                  /*
+                      カウンターを押した場合
+                  */
 
-                /*
-                    ＋−ボタンを押した場合は
-                    カード選択を切り替えない
-                */
+                  if (event.target.closest(".counter")) {
+                      return;
+                  }
 
-                if (event.target.closest(".counter")) {
-                    return;
-                }
 
+                  checkbox.checked =
+                      !checkbox.checked;
 
-                checkbox.checked =
-                    !checkbox.checked;
 
+                  updateCard(option);
 
-                updateCard(option);
+              });
 
-            });
 
+              /* -------------------------------------
+                チェックボックス直接操作
+              ------------------------------------- */
 
-            /* -------------------------------------
-              チェックボックスを直接クリック
-            ------------------------------------- */
+              checkbox.addEventListener("change", () => {
 
-            checkbox.addEventListener("change", () => {
+                  updateCard(option);
 
-                updateCard(option);
+              });
 
-            });
+          });
 
-        });
 
+          /* =========================================
+            カードの見た目更新
+          ========================================= */
 
-        /* =========================================
-          カードの選択状態を更新
-        ========================================= */
+          function updateCard(option) {
 
-        function updateCard(option) {
+              const checkbox =
+                  option.querySelector(".option-check");
 
-            const checkbox =
-                option.querySelector(".option-check");
 
+              if (!checkbox) {
+                  return;
+              }
 
-            if (!checkbox) {
-                return;
-            }
 
+              option.classList.toggle(
+                  "selected",
+                  checkbox.checked
+              );
 
-            if (checkbox.checked) {
 
-                option.classList.add("selected");
+              calculateTotal();
 
-            } else {
+          }
 
-                option.classList.remove("selected");
 
-            }
+          /* =========================================
+            数量付きカード
+            
+            ・VRChatアバターギミック
+            ・3Dモデル制作
+          ========================================= */
 
+          document.querySelectorAll(".quantity-option").forEach(option => {
 
-            calculateTotal();
+              const plus =
+                  option.querySelector(".counter-plus");
 
-        }
+              const minus =
+                  option.querySelector(".counter-minus");
 
+              const quantity =
+                  option.querySelector(".quantity");
 
-        /* =========================================
-          数量付きカード
-          
-          ・VRChatアバターギミック
-          ・3Dモデル制作
-        ========================================= */
+              const checkbox =
+                  option.querySelector(".option-check");
 
-        document.querySelectorAll(".quantity-option").forEach(option => {
 
-            const plus =
-                option.querySelector(".counter-plus");
+              if (!plus || !minus || !quantity) {
+                  return;
+              }
 
-            const minus =
-                option.querySelector(".counter-minus");
 
-            const quantity =
-                option.querySelector(".quantity");
+              let count = 0;
 
-            const checkbox =
-                option.querySelector(".option-check");
 
+              /* -------------------------------------
+                ＋
+              ------------------------------------- */
 
-            if (!plus || !minus || !quantity) {
-                return;
-            }
+              plus.addEventListener("click", event => {
 
+                  event.preventDefault();
+                  event.stopPropagation();
 
-            /* 現在の数量 */
 
-            let count = 0;
+                  count++;
 
 
-            /* -------------------------------------
-              ＋ボタン
-            ------------------------------------- */
+                  quantity.textContent =
+                      count;
 
-            plus.addEventListener("click", event => {
 
-                event.preventDefault();
+                  /*
+                      ＋を押したら自動選択
+                  */
 
-                event.stopPropagation();
+                  if (checkbox) {
 
+                      checkbox.checked = true;
 
-                count++;
+                      option.classList.add("selected");
 
+                  }
 
-                quantity.textContent =
-                    count;
 
+                  calculateTotal();
 
-                /*
-                    ＋を押したら自動的に選択
-                */
+              });
 
-                if (checkbox) {
 
-                    checkbox.checked = true;
+              /* -------------------------------------
+                −
+              ------------------------------------- */
 
-                    option.classList.add("selected");
+              minus.addEventListener("click", event => {
 
-                }
+                  event.preventDefault();
+                  event.stopPropagation();
 
 
-                calculateTotal();
+                  if (count > 0) {
 
-            });
+                      count--;
 
+                  }
 
-            /* -------------------------------------
-              −ボタン
-            ------------------------------------- */
 
-            minus.addEventListener("click", event => {
+                  quantity.textContent =
+                      count;
 
-                event.preventDefault();
 
-                event.stopPropagation();
+                  /*
+                      0個になったらチェック解除
+                  */
 
+                  if (count === 0 && checkbox) {
 
-                if (count > 0) {
+                      checkbox.checked = false;
 
-                    count--;
+                      option.classList.remove("selected");
 
-                }
+                  }
 
 
-                quantity.textContent =
-                    count;
+                  calculateTotal();
 
+              });
 
-                /*
-                    0個になったら選択解除
-                */
+          });
 
-                if (count === 0 && checkbox) {
 
-                    checkbox.checked = false;
+          /* =========================================
+            3Dモデル制作
+            
+            1個につき +¥500
+          ========================================= */
 
-                    option.classList.remove("selected");
+          document.querySelectorAll(
+              ".quantity-option"
+          ).forEach(option => {
 
-                }
+              /*
+                  3Dモデル制作カテゴリーの
+                  カードだけを対象にする
+              */
 
+              const category =
+                  option.closest(".order-category");
 
-                calculateTotal();
 
-            });
+              if (!category) {
+                  return;
+              }
 
-        });
 
+              const categoryTitle =
+                  category.querySelector(
+                      ".order-category-title"
+                  );
 
-        /* =========================================
-          BGM
-        ========================================= */
 
-        const bgmCard =
-            document.querySelector(".order-special-card");
+              if (!categoryTitle) {
+                  return;
+              }
 
 
-        const bgmPlus =
-            document.querySelector(
-                '[data-counter="bgm"].counter-plus'
-            );
+              if (
+                  categoryTitle.textContent.trim()
+                  !== "3Dモデル制作"
+              ) {
+                  return;
+              }
 
 
-        const bgmMinus =
-            document.querySelector(
-                '[data-counter="bgm"].counter-minus'
-            );
+              /*
+                  個数 × 500円を追加するための
+                  フラグ
+              */
 
+              option.dataset.objectFee = "500";
 
-        const bgmMinutesText =
-            document.getElementById("bgmMinutes");
+          });
 
 
-        const bgmPriceText =
-            document.getElementById("bgmPrice");
+          /* =========================================
+            見積金額を3Dモデル込みで再計算
+          ========================================= */
 
+          const originalCalculateTotal =
+              calculateTotal;
 
-        /* =========================================
-          BGM表示更新
-        ========================================= */
 
-        function updateBGM() {
+          function calculateFinalTotal() {
 
-            const start =
-                bgmMinutes;
+              let total = 0;
 
 
-            const end =
-                bgmMinutes + 1;
+              /* =====================================
+                通常カード
+              ===================================== */
 
+              document.querySelectorAll(".order-option").forEach(option => {
 
-            const price =
-                1000 + (bgmMinutes * 200);
+                  const checkbox =
+                      option.querySelector(".option-check");
 
 
-            /* 分数 */
+                  if (!checkbox || !checkbox.checked) {
+                      return;
+                  }
 
-            if (bgmMinutesText) {
 
-                bgmMinutesText.textContent =
-                    `${start}〜${end}分`;
+                  const price =
+                      Number(option.dataset.price) || 0;
 
-            }
 
+                  const quantityElement =
+                      option.querySelector(".quantity");
 
-            /* 金額 */
 
-            if (bgmPriceText) {
+                  if (quantityElement) {
 
-                bgmPriceText.textContent =
-                    "¥" + price.toLocaleString();
+                      const quantity =
+                          Number(quantityElement.textContent) || 0;
 
-            }
 
-        }
+                      total +=
+                          price * quantity;
 
 
-        /* =========================================
-          BGMカードクリック
-        ========================================= */
+                      /*
+                          3Dモデルの場合
+                          1個につき +¥500
+                      */
 
-        if (bgmCard) {
+                      if (option.dataset.objectFee) {
 
-            bgmCard.addEventListener("click", event => {
+                          const objectFee =
+                              Number(option.dataset.objectFee);
 
-                /*
-                    ＋−ボタンを押した場合は
-                    カードの選択状態を変更しない
-                */
 
-                if (event.target.closest(".counter")) {
-                    return;
-                }
+                          total +=
+                              objectFee * quantity;
 
+                      }
 
-                bgmSelected =
-                    !bgmSelected;
+                  }
 
+                  else {
 
-                bgmCard.classList.toggle(
-                    "selected",
-                    bgmSelected
-                );
+                      total += price;
 
+                  }
 
-                calculateTotal();
+              });
 
-            });
 
-        }
+              /* =====================================
+                BGM
+              ===================================== */
 
+              const bgmCheck =
+                  document.getElementById("bgmCheck");
 
-        /* =========================================
-          BGM ＋
-        ========================================= */
 
-        if (bgmPlus) {
+              if (bgmCheck && bgmCheck.checked) {
 
-            bgmPlus.addEventListener("click", event => {
+                  total +=
+                      1000 + (bgmMinutes * 200);
 
-                event.preventDefault();
+              }
 
-                event.stopPropagation();
 
+              /* =====================================
+                表示
+              ===================================== */
 
-                bgmMinutes++;
+              const estimatePrice =
+                  document.getElementById("estimatePrice");
 
 
-                /*
-                    ＋を押したら
-                    BGMを自動選択
-                */
+              if (estimatePrice) {
 
-                bgmSelected = true;
+                  estimatePrice.textContent =
+                      "¥" + total.toLocaleString();
 
+              }
 
-                if (bgmCard) {
+          }
 
-                    bgmCard.classList.add("selected");
 
-                }
+          /* =========================================
+            BGM
+          ========================================= */
 
+          const bgmPlus =
+              document.querySelector(
+                  '[data-counter="bgm"].counter-plus'
+              );
 
-                updateBGM();
 
-                calculateTotal();
+          const bgmMinus =
+              document.querySelector(
+                  '[data-counter="bgm"].counter-minus'
+              );
 
-            });
 
-        }
+          const bgmMinutesText =
+              document.getElementById(
+                  "bgmMinutes"
+              );
 
 
-        /* =========================================
-          BGM −
-        ========================================= */
+          const bgmPriceText =
+              document.getElementById(
+                  "bgmPrice"
+              );
 
-        if (bgmMinus) {
 
-            bgmMinus.addEventListener("click", event => {
+          const bgmCheck =
+              document.getElementById(
+                  "bgmCheck"
+              );
 
-                event.preventDefault();
 
-                event.stopPropagation();
+          /* -----------------------------------------
+            BGM表示
+          ----------------------------------------- */
 
+          function updateBGM() {
 
-                if (bgmMinutes > 0) {
+              const start =
+                  bgmMinutes;
 
-                    bgmMinutes--;
 
-                }
+              const end =
+                  bgmMinutes + 1;
 
 
-                updateBGM();
+              const price =
+                  1000 + (bgmMinutes * 200);
 
-                calculateTotal();
 
-            });
+              if (bgmMinutesText) {
 
-        }
+                  bgmMinutesText.textContent =
+                      `${start}〜${end}分`;
 
+              }
 
-        /* =========================================
-          初期化
-        ========================================= */
 
-        updateBGM();
+              if (bgmPriceText) {
 
-        calculateTotal();
+                  bgmPriceText.textContent =
+                      "¥" + price.toLocaleString();
 
-    });
+              }
+
+          }
+
+
+          /* -----------------------------------------
+            BGMチェック
+          ----------------------------------------- */
+
+          if (bgmCheck) {
+
+              bgmCheck.addEventListener(
+                  "change",
+                  () => {
+
+                      const bgmCard =
+                          document.querySelector(
+                              ".order-special-card"
+                          );
+
+
+                      if (bgmCard) {
+
+                          bgmCard.classList.toggle(
+                              "selected",
+                              bgmCheck.checked
+                          );
+
+                      }
+
+
+                      calculateFinalTotal();
+
+                  }
+              );
+
+          }
+
+
+          /* -----------------------------------------
+            BGM ＋
+          ----------------------------------------- */
+
+          if (bgmPlus) {
+
+              bgmPlus.addEventListener(
+                  "click",
+                  event => {
+
+                      event.preventDefault();
+                      event.stopPropagation();
+
+
+                      bgmMinutes++;
+
+
+                      updateBGM();
+
+                      calculateFinalTotal();
+
+                  }
+              );
+
+          }
+
+
+          /* -----------------------------------------
+            BGM −
+          ----------------------------------------- */
+
+          if (bgmMinus) {
+
+              bgmMinus.addEventListener(
+                  "click",
+                  event => {
+
+                      event.preventDefault();
+                      event.stopPropagation();
+
+
+                      if (bgmMinutes > 0) {
+
+                          bgmMinutes--;
+
+                      }
+
+
+                      updateBGM();
+
+                      calculateFinalTotal();
+
+                  }
+              );
+
+          }
+
+
+          /* =========================================
+            初期化
+          ========================================= */
+
+          updateBGM();
+
+          calculateFinalTotal();
+
+      });
     </script>
 
 </main>
