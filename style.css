@@ -1730,3 +1730,457 @@ section1 {
     }
 
 }
+
+/* =========================================================
+   PORTFOLIO HERO
+========================================================= */
+
+.portfolio-hero {
+    width: 100%;
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background: #111;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+
+/* メインタイトル */
+
+.portfolio-hero h1 {
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: white !important;
+
+    font-size: clamp(48px, 8vw, 110px);
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    line-height: 1.1;
+
+    text-align: center;
+}
+
+
+/* 下の小さい文字 */
+
+.portfolio-hero p {
+    margin: 25px 0 0 0;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 14px;
+
+    letter-spacing: 8px;
+}
+
+/* =========================================================
+   SFX SECTION
+========================================================= */
+
+.sfx-section {
+
+    width: 100%;
+
+    max-width: 1800px;
+
+    margin: 70px auto;
+
+    padding: 0 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TOGGLE BUTTON
+========================================================= */
+
+.sfx-toggle {
+
+    width: 100%;
+
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 25px 35px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+
+    border-radius: 18px;
+
+    background: #f5f5f5;
+
+    color: #111;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+
+.sfx-toggle:hover {
+
+    transform: translateY(-5px);
+
+    background: #fff;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.15);
+}
+
+
+/* 矢印 */
+
+.sfx-toggle-arrow {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 22px;
+
+    transition:
+        transform .3s ease;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.sfx-container {
+
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    opacity: 0;
+
+    transition:
+        grid-template-rows .5s ease,
+        opacity .3s ease;
+
+}
+
+
+.sfx-container.open {
+
+    grid-template-rows: 1fr;
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.sfx-grid {
+
+    min-height: 0;
+
+    display: grid;
+
+    /*
+       PCでは9個横一列
+    */
+
+    grid-template-columns:
+        repeat(9, minmax(0, 1fr));
+
+    gap: 15px;
+
+    padding-top: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.sfx-card {
+
+    min-width: 0;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    background: #f5f5f5;
+
+    border: 1px solid #ddd;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+
+/* ホバー */
+
+.sfx-card:hover {
+
+    transform: translateY(-8px);
+
+    background: #fff;
+
+    border-color: #bbb;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.15);
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.sfx-card .sfx-name {
+
+    margin: 0 0 10px 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-size: 19px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.sfx-description {
+
+    margin: 0 0 15px 0 !important;
+
+    padding: 0 !important;
+
+    color: #666 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.5;
+
+    /*
+       説明が長くなっても
+       カードの高さを揃える
+    */
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+.sfx-player {
+
+    width: 100%;
+
+    margin: auto 0 15px 0;
+
+    height: 35px;
+}
+
+
+/* =========================================================
+   DOWNLOAD
+========================================================= */
+
+.sfx-download {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 38px;
+
+    box-sizing: border-box;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+.sfx-download:hover {
+
+    background: #333;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/*
+   9個はかなり横幅が必要なので、
+   画面が狭くなったら自動的に減らす
+*/
+
+@media (max-width: 1500px) {
+
+    .sfx-grid {
+
+        grid-template-columns:
+            repeat(6, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 1100px) {
+
+    .sfx-grid {
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sfx-section {
+
+        padding: 0 15px;
+    }
+
+
+    .sfx-toggle {
+
+        min-height: 80px;
+
+        padding: 20px;
+
+        font-size: 24px;
+    }
+
+
+    .sfx-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+
+    .sfx-card {
+
+        padding: 14px;
+    }
+
+
+    .sfx-card .sfx-name {
+
+        font-size: 16px;
+    }
+
+
+    .sfx-description {
+
+        font-size: 12px !important;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .sfx-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -22,8 +22,11 @@
     </nav>
 
   </header>
-    <h1>ホーム</h1>
-    <p>こちらのウェブサイトはTERUが創り上げたゲーム、3Dモデル、音楽が一覧できるいわばポートフォリオの役割を担っているページです。</p>
+
+    <section class="portfolio-hero">
+        <h1>TERUのポートフォリオ</h1>
+        <p>CREATIVE PORTFOLIO</p>
+    </section>
 
     <section class="news-section">
       <h2>NEWS</h2>
@@ -212,6 +215,9 @@
       const modalLink = document.getElementById("modalLink");
 
 
+      let currentIndex = 1;
+
+
       /* =========================
         CREATE CARDS
       ========================= */
@@ -247,50 +253,71 @@
               </div>
           `;
 
+
+          /* カードクリック */
+
           card.addEventListener("click", () => {
+
+              // 中央じゃなければ中央へ移動
+              if (currentIndex !== index) {
+
+                  currentIndex = index;
+
+                  updateCarousel();
+
+                  return;
+              }
+
+              // 中央なら詳細を開く
               openNews(index);
+
           });
 
+
           track.appendChild(card);
+
       });
 
 
-      const cards = document.querySelectorAll(".news-card");
+      const cards =
+          document.querySelectorAll(".news-card");
 
 
       /* =========================
         CAROUSEL
       ========================= */
 
-      let currentIndex = 1;
-
-
-      /*
-        最初は2番目を中央にする
-      */
-
       function updateCarousel() {
 
           if (!cards.length) return;
 
+
+          const gap = 24;
+
           const cardWidth =
-              cards[0].offsetWidth + 24;
+              cards[0].offsetWidth + gap;
+
 
           const viewportWidth =
-              document.querySelector(".news-carousel").offsetWidth;
+              document
+                  .querySelector(".news-carousel")
+                  .offsetWidth;
+
 
           const centerOffset =
               (viewportWidth - cards[0].offsetWidth) / 2;
+
 
           const translate =
               centerOffset -
               (currentIndex * cardWidth);
 
+
           track.style.transform =
               `translateX(${translate}px)`;
 
 
-          /* 左右のカードを暗くする */
+          /* 中央カードを強調 */
 
           cards.forEach((card, index) => {
 
@@ -300,6 +327,7 @@
               );
 
           });
+
       }
 
 
