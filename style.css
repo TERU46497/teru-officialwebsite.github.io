@@ -2187,865 +2187,457 @@ section1 {
 
 }
 
-/* =========================================================
-   ORDER
-========================================================= */
+/* =========================================
+   ORDER PAGE
+========================================= */
+
+.order-page {
+    background: #ffffff;
+    color: #111111;
+
+    padding: 60px 20px 100px;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   依頼内容
+========================================= */
 
 .order-section {
-
-    width: min(1000px, 90%);
-
-    margin: 90px auto 120px;
-
+    width: min(1200px, 95%);
+    margin: 60px auto;
 }
 
+.order-section > h2 {
+    color: #111111;
 
-/* =========================================================
-   TITLE
-========================================================= */
-
-.order-title {
-
-    margin: 0 0 35px 0 !important;
-
-    padding: 0 !important;
-
-    background: transparent !important;
-
-    color: #111 !important;
-
-    font-size: 32px;
-
-    text-align: center;
-
-    letter-spacing: 3px;
-
-}
-
-
-/* =========================================================
-   LIST
-========================================================= */
-
-.order-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-
-}
-
-
-/* =========================================================
-   CARD
-========================================================= */
-
-.order-card {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    min-height: 130px;
-
-    padding: 25px 30px;
-
-    box-sizing: border-box;
-
-    background: #f5f5f5;
-
-    border: 1px solid #ddd;
-
-    border-radius: 18px;
-
-    color: #111;
-
-    text-decoration: none;
-
-    overflow: hidden;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        background .3s ease,
-        border-color .3s ease;
-
-}
-
-
-/* =========================================================
-   HOVER
-========================================================= */
-
-.order-card:hover {
-
-    transform:
-        translateY(-8px);
-
-    background: #fff;
-
-    border-color: #bbb;
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.15);
-
-}
-
-
-/* =========================================================
-   LOGO
-========================================================= */
-
-.order-logo {
-
-    width: 75px;
-
-    height: 75px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin-right: 25px;
-
-    border-radius: 16px;
-
-    background: #111;
-
-    overflow: hidden;
-
-}
-
-
-.order-logo img {
-
-    width: 55px;
-
-    height: 55px;
-
-    object-fit: contain;
-
-}
-
-
-/* メールアイコン */
-
-.order-mail-icon {
-
-    color: white;
-
-    font-size: 38px;
-
-}
-
-
-/* =========================================================
-   INFORMATION
-========================================================= */
-
-.order-info {
-
-    flex: 1;
-
-    min-width: 0;
-
-}
-
-
-.order-info h3 {
-
-    margin: 0 0 8px 0 !important;
-
-    padding: 0 !important;
-
-    background: transparent !important;
-
-    color: #111 !important;
-
-    font-size: 21px;
-
-    line-height: 1.4;
-
-}
-
-
-.order-info p {
-
-    margin: 0 !important;
-
-    padding: 0 !important;
-
-    color: #777 !important;
-
-    font-size: 14px !important;
-
-}
-
-
-/* =========================================================
-   ACTION
-========================================================= */
-
-.order-action {
-
-    margin-left: 30px;
-
-    color: #777;
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    white-space: nowrap;
-
-    transform: translateX(-5px);
-
-    transition:
-        transform .3s ease,
-        color .3s ease;
-
-}
-
-
-.order-card:hover .order-action {
-
-    color: #111;
-
-    transform:
-        translateX(5px);
-
-}
-
-
-/* =========================================================
-   LEFT ACCENT
-========================================================= */
-
-.order-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    top: 0;
-
-    width: 5px;
-
-    height: 100%;
-
-    background: #111;
-
-    transform:
-        scaleY(0);
-
-    transform-origin: center;
-
-    transition:
-        transform .3s ease;
-
-}
-
-
-.order-card:hover::before {
-
-    transform:
-        scaleY(1);
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .order-section {
-
-        width: 90%;
-
-        margin-top: 60px;
-
-    }
-
-
-    .order-card {
-
-        min-height: 110px;
-
-        padding: 20px;
-
-    }
-
-
-    .order-logo {
-
-        width: 60px;
-
-        height: 60px;
-
-        margin-right: 15px;
-
-    }
-
-
-    .order-logo img {
-
-        width: 42px;
-
-        height: 42px;
-
-    }
-
-
-    .order-info h3 {
-
-        font-size: 16px;
-
-    }
-
-
-    .order-info p {
-
-        font-size: 12px !important;
-
-    }
-
-
-    .order-action {
-
-        display: none;
-
-    }
-
-}
-
-/* =========================================================
-   SERVICE
-========================================================= */
-
-.service-section {
-
-    width: min(1100px, 92%);
-
-    margin: 100px auto 140px;
-
-    padding: 80px 50px;
-
-    box-sizing: border-box;
-
-    background: #fff;
-
-}
-
-
-/* =========================================================
-   TITLE
-========================================================= */
-
-.service-main-title {
-
-    margin: 0 !important;
-
-    padding: 0 !important;
-
-    background: transparent !important;
-
-    color: #111 !important;
+    margin: 0 0 20px;
 
     text-align: center;
 
     font-size: 42px;
-
-    letter-spacing: 6px;
-
 }
 
 
-.service-notice {
-
-    margin: 25px auto 80px !important;
-
-    color: #666 !important;
-
+.order-note {
     text-align: center;
 
-    line-height: 2;
+    margin: 0 auto 50px;
 
-    font-size: 15px !important;
+    color: #555555;
 
+    line-height: 1.8;
 }
 
 
-/* =========================================================
-   CATEGORY
-========================================================= */
+/* =========================================
+   大カテゴリ
+========================================= */
 
-.service-category {
+.order-category {
+    margin: 50px 0;
 
-    margin-bottom: 90px;
+    padding: 30px;
 
+    background: #f5f5f5;
+
+    border-radius: 20px;
+
+    border: 1px solid #dddddd;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
 }
 
 
-.service-category-title {
+/* 大カテゴリタイトル */
 
-    margin: 0 0 35px !important;
-
-    padding: 0 0 15px !important;
-
+.order-category-title {
     background: transparent !important;
 
-    color: #111 !important;
+    color: #111111 !important;
 
-    text-align: center;
+    margin: 0 0 25px !important;
 
-    font-size: 32px;
+    padding: 0 0 15px;
 
-    letter-spacing: 3px;
+    font-size: 30px;
 
-    border-bottom: 2px solid #111;
-
+    border-bottom: 2px solid #111111;
 }
 
 
-/* =========================================================
-   PLAN GRID
-========================================================= */
+/* =========================================
+   子カード
+========================================= */
 
-.service-plans {
-
+.order-options {
     display: grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(2, minmax(0, 1fr));
 
-    gap: 25px;
-
+    gap: 20px;
 }
 
 
-/* =========================================================
-   CARD
-========================================================= */
-
-.service-plan {
-
+.order-option {
     position: relative;
 
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
 
-    overflow: hidden;
+    gap: 20px;
 
-    min-height: 360px;
+    padding: 20px;
 
-    padding: 0;
+    min-height: 150px;
+
+    background: #ffffff;
+
+    border: 2px solid #dddddd;
+
+    border-radius: 16px;
 
     box-sizing: border-box;
 
-    background: #f7f7f7;
-
-    border: 2px solid #ddd;
-
-    border-radius: 18px;
-
-    cursor: pointer;
-
     transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease,
-        background .25s ease;
-
-}
-
-
-/* hover */
-
-.service-plan:hover {
-
-    transform: translateY(-7px);
-
-    border-color: #999;
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.12);
-
-}
-
-
-/* =========================================================
-   CHECKBOX
-========================================================= */
-
-.service-checkbox {
-
-    position: absolute;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================================
-   CHECK MARK
-========================================================= */
-
-.service-checkmark {
-
-    position: absolute;
-
-    top: 15px;
-
-    right: 15px;
-
-    z-index: 5;
-
-    width: 30px;
-
-    height: 30px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: white;
-
-    border: 2px solid #bbb;
-
-    color: transparent;
-
-    font-size: 17px;
-
-    font-weight: bold;
-
-    transition:
-        background .2s ease,
+        transform .2s ease,
         border-color .2s ease,
-        color .2s ease;
-
+        box-shadow .2s ease;
 }
 
 
-/* 選択状態 */
+.order-option:hover {
+    transform: translateY(-4px);
 
-.service-plan:has(.service-checkbox:checked) {
-
-    border-color: #111;
-
-    background: #fff;
+    border-color: #999999;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.16);
-
+        0 10px 25px rgba(0,0,0,.12);
 }
 
 
-.service-plan:has(.service-checkbox:checked)
-.service-checkmark {
+/* チェックされたカード */
 
-    background: #111;
+.order-option.selected {
+    border-color: #111111;
 
-    border-color: #111;
-
-    color: white;
-
+    box-shadow:
+        0 0 0 3px rgba(0,0,0,.08),
+        0 10px 30px rgba(0,0,0,.15);
 }
 
 
-/* =========================================================
-   IMAGE
-========================================================= */
+/* =========================================
+   カード画像
+========================================= */
 
-.service-plan-image {
+.order-option > img,
+.order-special-card > img {
+    width: 120px;
+    height: 120px;
 
-    width: 100%;
-
-    height: 160px;
+    flex-shrink: 0;
 
     object-fit: cover;
 
-    display: block;
+    border-radius: 12px;
 
-    background: #ddd;
-
+    background: #eeeeee;
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+/* =========================================
+   カード情報
+========================================= */
 
-.service-plan-content {
-
-    display: flex;
-
-    flex-direction: column;
-
+.option-info {
     flex: 1;
 
-    padding: 22px;
-
+    min-width: 0;
 }
 
 
-.service-plan h4 {
+.option-info h4 {
+    color: #111111;
 
-    margin: 0 0 12px !important;
+    margin: 0 0 8px;
 
-    padding: 0 !important;
-
-    background: transparent !important;
-
-    color: #111 !important;
-
-    font-size: 21px;
-
+    font-size: 20px;
 }
 
 
-.service-plan p {
+.option-info p {
+    margin: 0 0 12px;
 
-    margin: 0 0 10px !important;
+    color: #666666;
 
-    padding: 0 !important;
+    font-size: 14px;
 
-    color: #666 !important;
-
-    font-size: 14px !important;
-
-    line-height: 1.8;
-
+    line-height: 1.6;
 }
 
 
-/* =========================================================
-   PRICE
-========================================================= */
+.option-info strong {
+    display: block;
 
-.service-price {
+    color: #111111;
 
-    margin-top: auto;
-
-    padding-top: 18px;
-
-    color: #111;
-
-    font-size: 22px;
-
-    font-weight: bold;
-
+    font-size: 18px;
 }
 
 
-/* =========================================================
-   SMALL NOTE
-========================================================= */
+/* =========================================
+   チェックボックス
+========================================= */
 
-.service-small-note {
+.option-check {
+    width: 28px;
+    height: 28px;
 
-    margin-top: 12px !important;
+    flex-shrink: 0;
 
-    font-size: 12px !important;
+    cursor: pointer;
 
-    color: #888 !important;
-
-    line-height: 1.7 !important;
-
+    accent-color: #111111;
 }
 
 
-/* =========================================================
-   COUNTER
-========================================================= */
+/* =========================================
+   BGM
+========================================= */
 
-.counter {
-
+.order-special-card {
     display: flex;
 
     align-items: center;
 
-    justify-content: center;
+    gap: 25px;
 
-    gap: 15px;
+    padding: 25px;
 
-    margin-top: 20px;
+    background: #ffffff;
 
-    font-size: 18px;
+    border: 2px solid #dddddd;
 
-    font-weight: bold;
+    border-radius: 16px;
 
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.06);
 }
 
 
-.counter-button {
+.order-special-card .option-info {
+    flex: 1;
+}
 
-    width: 38px;
 
-    height: 38px;
+/* =========================================
+   カウンター
+========================================= */
 
-    border: 1px solid #ccc;
+.counter {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+
+.counter button {
+    width: 36px;
+    height: 36px;
+
+    border: 1px solid #cccccc;
 
     border-radius: 50%;
 
-    background: white;
+    background: #ffffff;
 
-    color: #111;
+    color: #111111;
 
     font-size: 20px;
 
+    line-height: 1;
+
     cursor: pointer;
 
-    transition: .2s;
-
+    transition:
+        background .15s ease,
+        transform .15s ease;
 }
 
 
-.counter-button:hover {
+.counter button:hover {
+    background: #eeeeee;
 
-    background: #111;
-
-    color: white;
-
+    transform: scale(1.08);
 }
 
 
-/* =========================================================
-   ESTIMATE
-========================================================= */
+.counter span {
+    min-width: 80px;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    color: #111111;
+}
+
+
+/* =========================================
+   その他
+========================================= */
+
+.other-order {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    color: #555555;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   納期注意
+========================================= */
+
+.deadline-note {
+    margin-top: 40px;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   見積金額
+========================================= */
 
 .estimate-box {
-
     position: sticky;
 
     bottom: 20px;
 
     z-index: 100;
 
-    width: min(600px, 100%);
+    width: min(600px, 90%);
 
-    margin: 20px auto 0;
+    margin: 60px auto 0;
 
     padding: 25px 35px;
 
-    box-sizing: border-box;
+    display: flex;
 
-    text-align: center;
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-sizing: border-box;
 
     background: rgba(255,255,255,.95);
 
-    border: 2px solid #111;
+    border: 2px solid #111111;
 
     border-radius: 18px;
 
     box-shadow:
-        0 15px 40px rgba(0,0,0,.15);
+        0 15px 40px rgba(0,0,0,.2);
 
     backdrop-filter: blur(10px);
-
 }
 
 
-.estimate-label {
+.estimate-box span {
+    font-size: 18px;
 
-    display: block;
-
-    margin-bottom: 5px;
-
-    color: #777;
-
-    font-size: 14px;
-
+    color: #555555;
 }
 
 
 .estimate-box strong {
+    font-size: 32px;
 
-    display: block;
-
-    color: #111;
-
-    font-size: 36px;
-
-    letter-spacing: 2px;
-
+    color: #111111;
 }
 
 
-.estimate-box p {
+/* =========================================
+   スマホ
+========================================= */
 
-    margin: 8px 0 0 !important;
+@media (max-width: 700px) {
 
-    color: #888 !important;
-
-    font-size: 11px !important;
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 800px) {
-
-    .service-section {
-
-        padding: 60px 20px;
-
-    }
-
-    .service-plans {
-
-        grid-template-columns: 1fr 1fr;
-
-    }
-
-}
-
-
-@media (max-width: 550px) {
-
-    .service-plans {
-
+    .order-options {
         grid-template-columns: 1fr;
-
     }
 
-    .service-main-title {
 
-        font-size: 32px;
-
+    .order-category {
+        padding: 20px;
     }
 
-    .service-category-title {
 
-        font-size: 26px;
+    .order-option {
+        align-items: flex-start;
 
+        flex-wrap: wrap;
     }
+
+
+    .order-option > img,
+    .order-special-card > img {
+        width: 90px;
+        height: 90px;
+    }
+
+
+    .option-info h4 {
+        font-size: 17px;
+    }
+
+
+    .order-special-card {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .order-special-card > img {
+        width: 100%;
+        height: 180px;
+    }
+
+
+    .estimate-box {
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
 
     .estimate-box strong {
-
-        font-size: 30px;
-
+        font-size: 28px;
     }
 
 }
