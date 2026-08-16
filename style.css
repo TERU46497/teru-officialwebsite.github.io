@@ -847,6 +847,590 @@ animation:
 
 }
 
+@keyframes heroFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ===========================
+   スクロールフェード
+=========================== */
+
+.fade-section{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.fade-section.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* ===========================
+   動画
+=========================== */
+
+.video-container{
+
+    width:min(900px,90%);
+
+    margin: 40px auto;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 15px 45px rgba(0,0,0,.45);
+
+}
+
+.video-container iframe{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    border:none;
+
+}
+
+
+/* ===========================
+   目次
+=========================== */
+
+.menu-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+.menu-card{
+
+    background:#1b1b1b;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    text-decoration:none;
+
+    color:white;
+
+    text-align:center;
+
+    transition:.3s;
+
+    border:1px solid #303030;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#242424;
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.menu-card img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:contain;
+
+    margin-bottom:20px;
+
+}
+
+.menu-card span{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+
+/* ===========================
+   Story
+=========================== */
+
+#story{
+
+    background:#131313;
+
+}
+
+#story p{
+
+    text-align:center;
+
+    font-size:20px;
+
+}
+
+
+/* ===========================
+   Character
+=========================== */
+
+#characters{
+
+    background:#FFFFFF;
+
+}
+
+
+/* ===========================
+   Credits
+=========================== */
+
+#credits{
+
+    background:#FFFFFF;
+
+}
+
+
+/* ===========================
+   Music
+=========================== */
+
+#music{
+
+    background:#FFFFFF;
+
+}
+
+
+/* スマホ */
+@media (max-width: 600px) {
+  .dropdown-content {
+    display: none;
+  }
+
+      .menu-card{
+
+        padding:25px;
+
+    }
+
+    .menu-card img{
+
+        width:100px;
+
+        height:100px;
+
+    }
+
+    .menu-card span{
+
+        font-size:18px;
+
+    }
+}
+
+.fade-item {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.fade-section.show .fade-item {
+  opacity: 1;
+}
+
+/* 画像はすぐ */
+.fade-img {
+  transition-delay: 0s;
+}
+
+/* 文字だけ遅らせる */
+.fade-text {
+  transition-delay: 0.3s; /* ←ここがラグ */
+}
+
+.fade-text {
+  transform: translateY(10px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-section.show .fade-text {
+  transform: translateY(0);
+}
+
+/* ===========================
+OST PLAYER
+=========================== */
+
+#music {
+position: relative;
+overflow: hidden;
+background: #080808;
+color: white;
+min-height: 900px;
+padding-top: 100px;
+padding-bottom: 120px;
+}
+
+/* OSTプレイヤー */
+
+.ost-player {
+
+
+position: relative;
+
+width: min(1200px, 90%);
+
+min-height: 700px;
+
+margin: 60px auto;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+overflow: hidden;
+
+border-radius: 25px;
+
+background: #000;
+
+box-shadow:
+    0 20px 60px rgba(0,0,0,.6);
+
+
+}
+
+/* ===========================
+背景
+=========================== */
+
+.ost-background {
+
+
+position: absolute;
+
+inset: 0;
+
+background-image:
+    url("images/OST_TheDungeon.png");
+
+background-size: cover;
+
+background-position: center;
+
+opacity: .22;
+
+filter: blur(5px);
+
+transform: scale(1.08);
+
+transition:
+    background-image .6s ease,
+    opacity .6s ease;
+
+
+}
+
+/* 背景の暗幕 */
+
+.ost-player::after {
+
+
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.8),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.8)
+    );
+
+pointer-events: none;
+
+
+}
+
+/* ===========================
+OST中央
+=========================== */
+
+.ost-content {
+
+
+position: relative;
+
+z-index: 2;
+
+width: min(800px, 75%);
+
+text-align: center;
+
+
+}
+
+/* 曲番号 */
+
+.ost-number {
+
+
+font-size: 18px;
+
+letter-spacing: 4px;
+
+color: rgba(255,255,255,.6);
+
+margin-bottom: 15px;
+
+
+}
+
+/* 曲タイトル */
+
+.ost-content h2 {
+
+
+color: white;
+
+font-size: clamp(30px, 5vw, 55px);
+
+letter-spacing: 3px;
+
+margin: 10px 0 35px;
+
+text-shadow:
+    0 4px 20px rgba(0,0,0,.8);
+
+
+}
+
+/* ===========================
+YouTube
+=========================== */
+
+.ost-video {
+
+width: 100%;
+
+overflow: hidden;
+
+border-radius: 15px;
+
+box-shadow:
+    0 15px 40px rgba(0,0,0,.6);
+
+}
+
+.ost-video iframe {
+
+width: 100%;
+
+aspect-ratio: 16 / 9;
+
+display: block;
+
+border: none;
+
+}
+
+/* ===========================
+Audio
+=========================== */
+
+.ost-content audio {
+
+
+width: 100%;
+
+margin-top: 25px;
+
+
+}
+
+/* ===========================
+左右矢印
+=========================== */
+
+.ost-arrow {
+
+
+position: absolute;
+
+top: 50%;
+
+transform: translateY(-50%);
+
+z-index: 5;
+
+width: 70px;
+
+height: 70px;
+
+border-radius: 50%;
+
+border: 1px solid rgba(255,255,255,.4);
+
+background: rgba(0,0,0,.45);
+
+color: white;
+
+font-size: 35px;
+
+cursor: pointer;
+
+transition:
+    background .3s ease,
+    transform .3s ease,
+    border-color .3s ease;
+
+
+}
+
+.ost-arrow:hover {
+
+
+background: rgba(255,255,255,.2);
+
+border-color: white;
+
+
+}
+
+.ost-prev {
+
+
+left: 30px;
+
+
+}
+
+.ost-next {
+
+
+right: 30px;
+
+
+}
+
+/* ===========================
+スライドアニメーション
+=========================== */
+
+.slide-left .ost-content {
+
+
+animation:
+    ostSlideLeft .5s ease;
+
+
+}
+
+.slide-right .ost-content {
+
+
+animation:
+    ostSlideRight .5s ease;
+
+
+}
+
+@keyframes ostSlideLeft {
+
+
+0% {
+
+    opacity: 0;
+
+    transform:
+        translateX(100px);
+
+}
+
+100% {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+}
+
+@keyframes ostSlideRight {
+
+
+0% {
+
+    opacity: 0;
+
+    transform:
+        translateX(-100px);
+
+}
+
+100% {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+}
+
 /* ===========================
 スマホ
 =========================== */
