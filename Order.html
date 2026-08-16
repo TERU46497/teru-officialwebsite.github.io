@@ -23,6 +23,894 @@
   </header>
     <h1>依頼</h1>
     <p>TERUに依頼を送るページです</p>
+
+    <section class="service-section">
+
+      <h2 class="service-main-title">
+          依頼内容
+      </h2>
+
+      <p class="service-notice">
+          価格は目安であり、作業量によって変わる場合があります。<br>
+          交渉は可能です。<br>
+          また、納期によって値段が変わります。ご了承ください。
+      </p>
+
+
+      <!-- =================================================
+          アバター
+      ================================================== -->
+
+      <div class="service-category">
+
+          <h3 class="service-category-title">
+              アバター
+          </h3>
+
+          <div class="service-plans">
+
+
+              <!-- 人型 -->
+
+              <label class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="20000"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/avatar-human.jpg"
+                      alt="人型モデリング"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          人型モデリング
+                      </h4>
+
+                      <p>
+                          人型VRChatアバターのモデリング。
+                      </p>
+
+                      <div class="service-price">
+                          +¥20,000
+                      </div>
+
+                  </div>
+
+              </label>
+
+
+              <!-- マスコット -->
+
+              <label class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="10000"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/avatar-mascot.jpg"
+                      alt="マスコットモデリング"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          マスコット
+                      </h4>
+
+                      <p>
+                          動物やマスコット系キャラクターのモデリング。
+                      </p>
+
+                      <div class="service-price">
+                          +¥10,000
+                      </div>
+
+                  </div>
+
+              </label>
+
+
+              <!-- ギミック -->
+
+              <label class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="5000"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/avatar-gimmick.jpg"
+                      alt="アバター備え付けギミック"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          アバター備え付けギミック
+                      </h4>
+
+                      <p>
+                          アバターに組み込むギミックを制作します。
+                      </p>
+
+                      <div class="service-price">
+                          +¥5,000
+                      </div>
+
+                  </div>
+
+              </label>
+
+
+              <!-- デザイン -->
+
+              <label class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="10000"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/avatar-design.jpg"
+                      alt="デザイン"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          デザイン
+                      </h4>
+
+                      <p>
+                          アバターのデザインを制作します。
+                      </p>
+
+                      <div class="service-price">
+                          +¥10,000
+                      </div>
+
+                  </div>
+
+              </label>
+
+          </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+          BGM
+      ================================================== -->
+
+      <div class="service-category">
+
+          <h3 class="service-category-title">
+              BGM
+          </h3>
+
+          <div class="service-plans">
+
+              <div class="service-plan service-plan-counter">
+
+                  <div class="service-check-row">
+
+                      <label>
+
+                          <input
+                              type="checkbox"
+                              class="service-checkbox"
+                              id="bgmCheck"
+                              data-price="1000"
+                          >
+
+                          <span class="service-checkmark">
+                              ✓
+                          </span>
+
+                          BGM制作
+
+                      </label>
+
+                  </div>
+
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/bgm.jpg"
+                      alt="BGM制作"
+                  >
+
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          BGM制作
+                      </h4>
+
+                      <p>
+                          初期費用：¥1,000<br>
+                          1分未満の場合は¥1,000のみ。
+                      </p>
+
+
+                      <div class="counter">
+
+                          <button
+                              type="button"
+                              class="counter-button"
+                              onclick="changeBGM(-1)"
+                          >
+                              −
+                          </button>
+
+                          <span id="bgmMinutes">
+                              1
+                          </span>
+
+                          <span>
+                              分
+                          </span>
+
+                          <button
+                              type="button"
+                              class="counter-button"
+                              onclick="changeBGM(1)"
+                          >
+                              ＋
+                          </button>
+
+                      </div>
+
+
+                      <div class="service-price">
+                          <span id="bgmPrice">
+                              ¥1,000
+                          </span>
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+          VRChatギミック
+      ================================================== -->
+
+      <div class="service-category">
+
+          <h3 class="service-category-title">
+              VRChatアバターギミック
+          </h3>
+
+          <div class="service-plans">
+
+
+              <!-- 販売可 -->
+
+              <div class="service-plan service-plan-counter">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="1000"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/gimmick.jpg"
+                      alt="VRChatギミック"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          BOOTH一般販売可能
+                      </h4>
+
+                      <p>
+                          制作後、当BOOTHで一般販売してよい場合。
+                      </p>
+
+                      <div class="counter">
+
+                          <button
+                              type="button"
+                              class="counter-button"
+                              onclick="changeGimmick(-1)"
+                          >
+                              −
+                          </button>
+
+                          <span id="gimmickCount">
+                              1
+                          </span>
+
+                          <span>
+                              個
+                          </span>
+
+                          <button
+                              type="button"
+                              class="counter-button"
+                              onclick="changeGimmick(1)"
+                          >
+                              ＋
+                          </button>
+
+                      </div>
+
+                      <div class="service-price">
+                          +¥1,000 / 個
+                      </div>
+
+                  </div>
+
+              </div>
+
+
+              <!-- 販売禁止 -->
+
+              <div class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="3000"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/gimmick-private.jpg"
+                      alt="販売禁止ギミック"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          BOOTH一般販売禁止
+                      </h4>
+
+                      <p>
+                          制作後、当BOOTHで一般販売を禁止する場合。
+                      </p>
+
+                      <div class="service-price">
+                          +¥3,000 / 個
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+          3Dモデル
+      ================================================== -->
+
+      <div class="service-category">
+
+          <h3 class="service-category-title">
+              3Dモデル制作 ★
+          </h3>
+
+
+          <div class="service-plans">
+
+
+              <!-- 単品 -->
+
+              <div class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="100"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/model-single.jpg"
+                      alt="3Dモデル単品"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          単品
+                      </h4>
+
+                      <p>
+                          ディテールやポリゴン数によって変動します。<br>
+                          例：カラーコーン ¥100〜<br>
+                          例：ヘリコプター ¥3,000〜
+                      </p>
+
+                      <p class="service-small-note">
+                          BOOTH一般販売可能：追加料金なし<br>
+                          BOOTH一般販売禁止：+¥1,000
+                      </p>
+
+                      <div class="service-price">
+                          ¥100〜¥3,000
+                      </div>
+
+                  </div>
+
+              </div>
+
+
+              <!-- プリセット -->
+
+              <div class="service-plan">
+
+                  <input
+                      type="checkbox"
+                      class="service-checkbox"
+                      data-price="7500"
+                  >
+
+                  <div class="service-checkmark">
+                      ✓
+                  </div>
+
+                  <img
+                      class="service-plan-image"
+                      src="images/services/model-preset.jpg"
+                      alt="3Dモデルプリセット"
+                  >
+
+                  <div class="service-plan-content">
+
+                      <h4>
+                          プリセット
+                      </h4>
+
+                      <p>
+                          規模やディテールによって変動します。<br>
+                          例：部屋 ¥7,500〜<br>
+                          例：魔王城 ¥15,000〜
+                      </p>
+
+                      <p class="service-small-note">
+                          BOOTH一般販売可能：追加料金なし<br>
+                          BOOTH一般販売禁止：+¥1,000
+                      </p>
+
+                      <div class="service-price">
+                          ¥7,500〜¥15,000
+                      </div>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+          その他
+      ================================================== -->
+
+      <div class="service-category">
+
+          <h3 class="service-category-title">
+              その他
+          </h3>
+
+          <div class="service-plan other-plan">
+
+              <div class="service-plan-content">
+
+                  <h4>
+                      その他のご依頼
+                  </h4>
+
+                  <p>
+                      上記にないご依頼については、
+                      内容を確認したうえでご相談・お見積もりいたします。
+                  </p>
+
+                  <div class="service-price">
+                      要相談
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+          見積もり
+      ================================================== -->
+
+      <div class="estimate-box">
+
+          <span class="estimate-label">
+              概算見積金額
+          </span>
+
+          <strong id="estimatePrice">
+              ¥0
+          </strong>
+
+          <p>
+              ※実際の料金は作業量・納期・ご依頼内容によって変動します。
+          </p>
+
+      </div>
+
+  </section>
+    <section class="order-section">
+
+      <h2 class="order-title">
+          依頼方法を選択
+      </h2>
+
+      <div class="order-list">
+
+          <!-- X -->
+          <a
+              class="order-card"
+              href="https://x.com/messages/compose?recipient_id=YOUR_X_ID"
+              target="_blank"
+          >
+
+              <div class="order-logo">
+                  <img
+                      src="images/logo-x.png"
+                      alt="X"
+                  >
+              </div>
+
+              <div class="order-info">
+
+                  <h3>
+                      X / @TERU_VRC
+                  </h3>
+
+                  <p>
+                      XのDMから依頼する
+                  </p>
+
+              </div>
+
+              <div class="order-action">
+                  クリックして依頼を申請 →
+              </div>
+
+          </a>
+
+
+          <!-- Email -->
+          <a
+              class="order-card"
+              href="mailto:terushop4649@gmail.com?subject=ポートフォリオ経由のご依頼&body=【お名前】%0D%0A【ご依頼内容】%0D%0A【ご希望内容】"
+          >
+
+              <div class="order-logo">
+
+                  <span class="order-mail-icon">
+                      ✉
+                  </span>
+
+              </div>
+
+              <div class="order-info">
+
+                  <h3>
+                      Email / terushop4649@gmail.com
+                  </h3>
+
+                  <p>
+                      メールから依頼する
+                  </p>
+
+              </div>
+
+              <div class="order-action">
+                  クリックして依頼を申請 →
+              </div>
+
+          </a>
+
+
+          <!-- Google Form -->
+          <a
+              class="order-card"
+              href="YOUR_GOOGLE_FORM_URL"
+              target="_blank"
+          >
+
+              <div class="order-logo">
+
+                  <img
+                      src="images/logo-google-form.png"
+                      alt="Google Forms"
+                  >
+
+              </div>
+
+              <div class="order-info">
+
+                  <h3>
+                      Google Forms
+                  </h3>
+
+                  <p>
+                      依頼フォームから申請する
+                  </p>
+
+              </div>
+
+              <div class="order-action">
+                  クリックして依頼を申請 →
+              </div>
+
+          </a>
+
+      </div>
+
+  </section>
+  
+  <script>
+
+  /* =========================================================
+    見積金額
+  ========================================================= */
+
+  const estimatePrice =
+      document.getElementById("estimatePrice");
+
+
+  /* =========================================================
+    基本チェックボックス
+  ========================================================= */
+
+  function updateEstimate() {
+
+      let total = 0;
+
+
+      document
+          .querySelectorAll(".service-checkbox:checked")
+          .forEach((checkbox) => {
+
+              total +=
+                  Number(checkbox.dataset.price) || 0;
+
+          });
+
+
+      /*
+          BGMは通常のチェックボックス計算から除外して
+          下で計算する
+      */
+
+      const bgmCheck =
+          document.getElementById("bgmCheck");
+
+
+      if (bgmCheck && bgmCheck.checked) {
+
+          total -=
+              Number(bgmCheck.dataset.price);
+
+          total +=
+              calculateBGM();
+
+      }
+
+
+      /*
+          ギミック
+      */
+
+      const gimmickCard =
+          document
+          .querySelector(
+              "#gimmickCount"
+          );
+
+      if (gimmickCard) {
+
+          const card =
+              gimmickCard.closest(".service-plan");
+
+          const checkbox =
+              card.querySelector(".service-checkbox");
+
+          if (checkbox && checkbox.checked) {
+
+              total -=
+                  Number(checkbox.dataset.price);
+
+              total +=
+                  Number(checkbox.dataset.price)
+                  *
+                  gimmickCount;
+
+          }
+
+      }
+
+
+      estimatePrice.textContent =
+          "¥" +
+          total.toLocaleString();
+
+  }
+
+
+  /* =========================================================
+    BGM
+  ========================================================= */
+
+  let bgmMinutes = 1;
+
+
+  function calculateBGM() {
+
+      /*
+          1分未満 → 1000円
+
+          1分 → 1000円
+
+          2分 → 1500円
+
+          3分 → 2000円
+      */
+
+      return 1000 +
+          Math.max(0, bgmMinutes - 1)
+          * 500;
+
+  }
+
+
+  function changeBGM(amount) {
+
+      bgmMinutes += amount;
+
+
+      if (bgmMinutes < 1) {
+
+          bgmMinutes = 1;
+
+      }
+
+
+      document
+          .getElementById("bgmMinutes")
+          .textContent =
+          bgmMinutes;
+
+
+      document
+          .getElementById("bgmPrice")
+          .textContent =
+          "¥" +
+          calculateBGM().toLocaleString();
+
+
+      updateEstimate();
+
+  }
+
+
+  /* =========================================================
+    ギミック
+  ========================================================= */
+
+  let gimmickCount = 1;
+
+
+  function changeGimmick(amount) {
+
+      gimmickCount += amount;
+
+
+      if (gimmickCount < 1) {
+
+          gimmickCount = 1;
+
+      }
+
+
+      document
+          .getElementById("gimmickCount")
+          .textContent =
+          gimmickCount;
+
+
+      updateEstimate();
+
+  }
+
+
+  /* =========================================================
+    全チェックボックス監視
+  ========================================================= */
+
+  document
+      .querySelectorAll(".service-checkbox")
+      .forEach((checkbox) => {
+
+          checkbox.addEventListener(
+              "change",
+              updateEstimate
+          );
+
+      });
+
+
+  /* 初期計算 */
+
+  updateEstimate();
+
+  </script>
+
 </body>
 <footer>
     <h5>お問い合わせ先：</h5>

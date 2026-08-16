@@ -91,7 +91,7 @@ nav a {
 /* カッコウの巣立ち */
 
 .nav-kakosuda {
-    background-color: #405d6c;
+    background-color: #000;
     color: #fff;
 }
 
@@ -99,7 +99,7 @@ nav a {
 /* Music */
 
 .nav-music {
-    background-color: #000;
+    background-color: #405d6c;
     color: #fff;
 }
 
@@ -2034,6 +2034,8 @@ section1 {
 
     -webkit-line-clamp: 3;
 
+    line-clamp: 3;
+
     -webkit-box-orient: vertical;
 
     overflow: hidden;
@@ -2181,6 +2183,869 @@ section1 {
     .sfx-grid {
 
         grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================================================
+   ORDER
+========================================================= */
+
+.order-section {
+
+    width: min(1000px, 90%);
+
+    margin: 90px auto 120px;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.order-title {
+
+    margin: 0 0 35px 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-size: 32px;
+
+    text-align: center;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.order-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.order-card {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 130px;
+
+    padding: 25px 30px;
+
+    box-sizing: border-box;
+
+    background: #f5f5f5;
+
+    border: 1px solid #ddd;
+
+    border-radius: 18px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.order-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    background: #fff;
+
+    border-color: #bbb;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.15);
+
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.order-logo {
+
+    width: 75px;
+
+    height: 75px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-right: 25px;
+
+    border-radius: 16px;
+
+    background: #111;
+
+    overflow: hidden;
+
+}
+
+
+.order-logo img {
+
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: contain;
+
+}
+
+
+/* メールアイコン */
+
+.order-mail-icon {
+
+    color: white;
+
+    font-size: 38px;
+
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.order-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.order-info h3 {
+
+    margin: 0 0 8px 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-size: 21px;
+
+    line-height: 1.4;
+
+}
+
+
+.order-info p {
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    color: #777 !important;
+
+    font-size: 14px !important;
+
+}
+
+
+/* =========================================================
+   ACTION
+========================================================= */
+
+.order-action {
+
+    margin-left: 30px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    transform: translateX(-5px);
+
+    transition:
+        transform .3s ease,
+        color .3s ease;
+
+}
+
+
+.order-card:hover .order-action {
+
+    color: #111;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   LEFT ACCENT
+========================================================= */
+
+.order-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 5px;
+
+    height: 100%;
+
+    background: #111;
+
+    transform:
+        scaleY(0);
+
+    transform-origin: center;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.order-card:hover::before {
+
+    transform:
+        scaleY(1);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .order-section {
+
+        width: 90%;
+
+        margin-top: 60px;
+
+    }
+
+
+    .order-card {
+
+        min-height: 110px;
+
+        padding: 20px;
+
+    }
+
+
+    .order-logo {
+
+        width: 60px;
+
+        height: 60px;
+
+        margin-right: 15px;
+
+    }
+
+
+    .order-logo img {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+    .order-info h3 {
+
+        font-size: 16px;
+
+    }
+
+
+    .order-info p {
+
+        font-size: 12px !important;
+
+    }
+
+
+    .order-action {
+
+        display: none;
+
+    }
+
+}
+
+/* =========================================================
+   SERVICE
+========================================================= */
+
+.service-section {
+
+    width: min(1100px, 92%);
+
+    margin: 100px auto 140px;
+
+    padding: 80px 50px;
+
+    box-sizing: border-box;
+
+    background: #fff;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.service-main-title {
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    text-align: center;
+
+    font-size: 42px;
+
+    letter-spacing: 6px;
+
+}
+
+
+.service-notice {
+
+    margin: 25px auto 80px !important;
+
+    color: #666 !important;
+
+    text-align: center;
+
+    line-height: 2;
+
+    font-size: 15px !important;
+
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.service-category {
+
+    margin-bottom: 90px;
+
+}
+
+
+.service-category-title {
+
+    margin: 0 0 35px !important;
+
+    padding: 0 0 15px !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    text-align: center;
+
+    font-size: 32px;
+
+    letter-spacing: 3px;
+
+    border-bottom: 2px solid #111;
+
+}
+
+
+/* =========================================================
+   PLAN GRID
+========================================================= */
+
+.service-plans {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.service-plan {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    min-height: 360px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background: #f7f7f7;
+
+    border: 2px solid #ddd;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+}
+
+
+/* hover */
+
+.service-plan:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #999;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.12);
+
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.service-checkbox {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   CHECK MARK
+========================================================= */
+
+.service-checkmark {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    z-index: 5;
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 2px solid #bbb;
+
+    color: transparent;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease;
+
+}
+
+
+/* 選択状態 */
+
+.service-plan:has(.service-checkbox:checked) {
+
+    border-color: #111;
+
+    background: #fff;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.16);
+
+}
+
+
+.service-plan:has(.service-checkbox:checked)
+.service-checkmark {
+
+    background: #111;
+
+    border-color: #111;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.service-plan-image {
+
+    width: 100%;
+
+    height: 160px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #ddd;
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.service-plan-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 22px;
+
+}
+
+
+.service-plan h4 {
+
+    margin: 0 0 12px !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-size: 21px;
+
+}
+
+
+.service-plan p {
+
+    margin: 0 0 10px !important;
+
+    padding: 0 !important;
+
+    color: #666 !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.service-price {
+
+    margin-top: auto;
+
+    padding-top: 18px;
+
+    color: #111;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   SMALL NOTE
+========================================================= */
+
+.service-small-note {
+
+    margin-top: 12px !important;
+
+    font-size: 12px !important;
+
+    color: #888 !important;
+
+    line-height: 1.7 !important;
+
+}
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.counter {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+}
+
+
+.counter-button {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #111;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.counter-button:hover {
+
+    background: #111;
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   ESTIMATE
+========================================================= */
+
+.estimate-box {
+
+    position: sticky;
+
+    bottom: 20px;
+
+    z-index: 100;
+
+    width: min(600px, 100%);
+
+    margin: 20px auto 0;
+
+    padding: 25px 35px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background: rgba(255,255,255,.95);
+
+    border: 2px solid #111;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.15);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.estimate-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+.estimate-box strong {
+
+    display: block;
+
+    color: #111;
+
+    font-size: 36px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.estimate-box p {
+
+    margin: 8px 0 0 !important;
+
+    color: #888 !important;
+
+    font-size: 11px !important;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .service-section {
+
+        padding: 60px 20px;
+
+    }
+
+    .service-plans {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .service-plans {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .service-main-title {
+
+        font-size: 32px;
+
+    }
+
+    .service-category-title {
+
+        font-size: 26px;
+
+    }
+
+    .estimate-box strong {
+
+        font-size: 30px;
+
     }
 
 }
