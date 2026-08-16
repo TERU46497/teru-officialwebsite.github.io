@@ -20,6 +20,55 @@
       <a class="nav-about"href="AboutTERU.html">TERUについて</a>
       <a class="nav-order"href="Order.html">依頼</a>
     </nav>
+
+    <section class="news-section">
+    <h2>NEWS</h2>
+
+    <div class="news-carousel">
+
+        <!-- 左矢印 -->
+        <button class="news-arrow news-arrow-left" aria-label="Previous">
+            ←
+        </button>
+
+        <!-- カードを入れる場所 -->
+        <div class="news-track" id="newsTrack"></div>
+
+        <!-- 右矢印 -->
+        <button class="news-arrow news-arrow-right" aria-label="Next">
+            →
+        </button>
+
+    </div>
+    </section>
+
+    <!-- 詳細モーダル -->
+    <div class="news-modal" id="newsModal">
+        <div class="news-modal-overlay"></div>
+
+        <div class="news-modal-card">
+            <button class="news-modal-close" aria-label="Close">
+                ×
+            </button>
+
+            <img id="modalImage" src="" alt="">
+
+            <div class="news-modal-content">
+                <div class="news-modal-meta">
+                    <span id="modalDate"></span>
+                    <span id="modalCategory"></span>
+                </div>
+
+                <h2 id="modalTitle"></h2>
+
+                <p id="modalDescription"></p>
+
+                <a id="modalLink" href="#" target="_blank">
+                    Read More →
+                </a>
+            </div>
+        </div>
+    </div>
   </header>
     <h1>ホーム</h1>
     <p>こちらのウェブサイトはTERUが創り上げたゲーム、3Dモデル、音楽が一覧できるいわばポートフォリオの役割を担っているページです。</p>
@@ -71,6 +120,295 @@
         content.style.display =
           content.style.display === 'block' ? 'none' : 'block';
       });
+    </script>
+    <script>
+      /* =========================
+        NEWS DATA
+      ========================= */
+
+      const news = [
+          {
+              date: "2026.08.16",
+              category: "GAME",
+
+              title: "カッコウの巣立ち アップデート",
+
+              image: "images/news/cuckoo.jpg",
+
+              description:
+                  "カッコウの巣立ちに新しいイベントを追加しました。",
+
+              content:
+                  "カッコウの巣立ちに新しいイベントを追加しました。\n\n今回のアップデートでは新しい探索要素を追加しています。",
+
+              link: "#"
+          },
+
+          {
+              date: "2026.08.14",
+              category: "MUSIC",
+
+              title: "新曲を公開しました",
+
+              image: "images/news/music.jpg",
+
+              description:
+                  "新しい楽曲をYouTubeに公開しました。",
+
+              content:
+                  "新しい楽曲を公開しました。\n\n制作した楽曲についての詳細はこちらから確認できます。",
+
+              link: "#"
+          },
+
+          {
+              date: "2026.08.10",
+              category: "CREATION",
+
+              title: "アバター制作開始",
+
+              image: "images/news/avatar.jpg",
+
+              description:
+                  "新しいVRChatアバターの制作を開始しました。",
+
+              content:
+                  "新しいVRChatアバターの制作を開始しました。\n\nモデリングから衣装まで制作していきます。",
+
+              link: "#"
+          },
+
+          {
+              date: "2026.08.05",
+              category: "UPDATE",
+
+              title: "ウェブサイト制作開始",
+
+              image: "images/news/website.jpg",
+
+              description:
+                  "新しいポートフォリオサイトの制作を開始しました。",
+
+              content:
+                  "自分の制作物をまとめるためのウェブサイトを制作しています。",
+
+              link: "#"
+          }
+      ];
+
+
+      /* =========================
+        ELEMENTS
+      ========================= */
+
+      const track = document.getElementById("newsTrack");
+
+      const modal = document.getElementById("newsModal");
+
+      const modalImage = document.getElementById("modalImage");
+      const modalDate = document.getElementById("modalDate");
+      const modalCategory = document.getElementById("modalCategory");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+      const modalLink = document.getElementById("modalLink");
+
+
+      /* =========================
+        CREATE CARDS
+      ========================= */
+
+      news.forEach((item, index) => {
+
+          const card = document.createElement("article");
+
+          card.className = "news-card";
+
+          card.innerHTML = `
+              <img
+                  class="news-card-image"
+                  src="${item.image}"
+                  alt="${item.title}"
+              >
+
+              <div class="news-card-content">
+
+                  <div class="news-card-meta">
+                      <span>${item.date}</span>
+                      <span>${item.category}</span>
+                  </div>
+
+                  <h3 class="news-card-title">
+                      ${item.title}
+                  </h3>
+
+                  <p class="news-card-description">
+                      ${item.description}
+                  </p>
+
+              </div>
+          `;
+
+          card.addEventListener("click", () => {
+              openNews(index);
+          });
+
+          track.appendChild(card);
+      });
+
+
+      const cards = document.querySelectorAll(".news-card");
+
+
+      /* =========================
+        CAROUSEL
+      ========================= */
+
+      let currentIndex = 1;
+
+
+      /*
+        最初は2番目を中央にする
+      */
+
+      function updateCarousel() {
+
+          if (!cards.length) return;
+
+          const cardWidth =
+              cards[0].offsetWidth + 24;
+
+          const viewportWidth =
+              document.querySelector(".news-carousel").offsetWidth;
+
+          const centerOffset =
+              (viewportWidth - cards[0].offsetWidth) / 2;
+
+          const translate =
+              centerOffset -
+              (currentIndex * cardWidth);
+
+          track.style.transform =
+              `translateX(${translate}px)`;
+
+
+          /* 左右のカードを暗くする */
+
+          cards.forEach((card, index) => {
+
+              const distance =
+                  Math.abs(index - currentIndex);
+
+              if (distance === 0) {
+
+                  card.style.opacity = "1";
+                  card.style.filter = "none";
+                  card.style.transform = "scale(1)";
+
+              } else {
+
+                  card.style.opacity = "0.45";
+                  card.style.filter = "brightness(0.6)";
+                  card.style.transform = "scale(0.92)";
+              }
+          });
+      }
+
+
+      /* =========================
+        ARROWS
+      ========================= */
+
+      document
+          .querySelector(".news-arrow-left")
+          .addEventListener("click", () => {
+
+              if (currentIndex > 0) {
+                  currentIndex--;
+                  updateCarousel();
+              }
+
+          });
+
+
+      document
+          .querySelector(".news-arrow-right")
+          .addEventListener("click", () => {
+
+              if (currentIndex < cards.length - 1) {
+                  currentIndex++;
+                  updateCarousel();
+              }
+
+          });
+
+
+      /* =========================
+        MODAL
+      ========================= */
+
+      function openNews(index) {
+
+          const item = news[index];
+
+          modalImage.src = item.image;
+          modalImage.alt = item.title;
+
+          modalDate.textContent = item.date;
+          modalCategory.textContent = item.category;
+
+          modalTitle.textContent = item.title;
+
+          modalDescription.textContent =
+              item.content;
+
+          modalLink.href = item.link;
+
+          modal.classList.add("active");
+
+          document.body.style.overflow = "hidden";
+      }
+
+
+      function closeNews() {
+
+          modal.classList.remove("active");
+
+          document.body.style.overflow = "";
+      }
+
+
+      /* × */
+
+      document
+          .querySelector(".news-modal-close")
+          .addEventListener("click", closeNews);
+
+
+      /* 背景クリック */
+
+      document
+          .querySelector(".news-modal-overlay")
+          .addEventListener("click", closeNews);
+
+
+      /* ESC */
+
+      document.addEventListener("keydown", (event) => {
+
+          if (event.key === "Escape") {
+              closeNews();
+          }
+
+      });
+
+
+      /* =========================
+        INITIALIZE
+      ========================= */
+
+      window.addEventListener("resize", updateCarousel);
+
+      updateCarousel();
     </script>
     
 </body>
