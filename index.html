@@ -21,25 +21,29 @@
       <a class="nav-order"href="Order.html">依頼</a>
     </nav>
 
+  </header>
+    <h1>ホーム</h1>
+    <p>こちらのウェブサイトはTERUが創り上げたゲーム、3Dモデル、音楽が一覧できるいわばポートフォリオの役割を担っているページです。</p>
+
     <section class="news-section">
-    <h2>NEWS</h2>
+      <h2>NEWS</h2>
 
-    <div class="news-carousel">
+      <div class="news-carousel">
 
-        <!-- 左矢印 -->
-        <button class="news-arrow news-arrow-left" aria-label="Previous">
-            ←
-        </button>
+          <!-- 左矢印 -->
+          <button class="news-arrow news-arrow-left" aria-label="Previous">
+              ←
+          </button>
 
-        <!-- カードを入れる場所 -->
-        <div class="news-track" id="newsTrack"></div>
+          <!-- カードを入れる場所 -->
+          <div class="news-track" id="newsTrack"></div>
 
-        <!-- 右矢印 -->
-        <button class="news-arrow news-arrow-right" aria-label="Next">
-            →
-        </button>
+          <!-- 右矢印 -->
+          <button class="news-arrow news-arrow-right" aria-label="Next">
+              →
+          </button>
 
-    </div>
+      </div>
     </section>
 
     <!-- 詳細モーダル -->
@@ -69,9 +73,6 @@
             </div>
         </div>
     </div>
-  </header>
-    <h1>ホーム</h1>
-    <p>こちらのウェブサイトはTERUが創り上げたゲーム、3Dモデル、音楽が一覧できるいわばポートフォリオの役割を担っているページです。</p>
 
     <h2>目次:</h2>
     <ul>
@@ -87,31 +88,6 @@
       <p>主にワールド制作・ギミック設計。</p>
     </div>
 
-    <button class="dropdown-btn">新情報</button>
-    <div class="dropdown-content">
-      <h1><span class="color-set">新商品！</span></h1>
-      <div class="image-box">
-          <img src="images/OctoRingMainPhoto.png" width="450">
-      </div>
-      <p>
-          --------------------------------------------------------<br>
-          VRChatアクセサリー:　OCTORING（オクトリング）（￥1000）<br>
-          --------------------------------------------------------<br>
-          船を触手で絡めとるタコの怪物をモチーフにした指輪です<br>
-          頭部と目が宝石部分になっており、色も変更できます<br>
-          触手部位がリングとなっているデザインです<br>
-          シェイプキーで指輪サイズの細かい調整ができるのでどのアバターにも(指があれば)はめる事ができます。<br>
-      </p>
-      <h2>『OCTORING』紹介動画：</p>
-      <div>
-          <iframe width="820" height="500" 
-              src="https://www.youtube.com/embed/xcr1ruQVdbc" title="[#VRChat] OCTORING" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-          </iframe>
-      </div>
-      <p>BOOTHで商品を見る: <a href="https://teru-4649-shop.booth.pm/items/7751615">OCTORINGーbooth.pm</a></p>
-    </div>
     <script>
       const btn = document.querySelector('.dropdown-btn');
       const content = document.querySelector('.dropdown-content');
@@ -295,21 +271,11 @@
 
           cards.forEach((card, index) => {
 
-              const distance =
-                  Math.abs(index - currentIndex);
+              card.classList.toggle(
+                  "news-active",
+                  index === currentIndex
+              );
 
-              if (distance === 0) {
-
-                  card.style.opacity = "1";
-                  card.style.filter = "none";
-                  card.style.transform = "scale(1)";
-
-              } else {
-
-                  card.style.opacity = "0.45";
-                  card.style.filter = "brightness(0.6)";
-                  card.style.transform = "scale(0.92)";
-              }
           });
       }
 
