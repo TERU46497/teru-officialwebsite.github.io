@@ -47,17 +47,11 @@
 
     </nav>
 
-</header>
+  </header>
 
-
-<main class="order-page">
-
-    <h1>依頼</h1>
-
-    <p>
-        TERUに依頼を送るページです。
-    </p>
-
+    <section class="portfolio-hero">
+      <h1>依頼ページ</h1>
+    </section>
 
     <!-- ==================================
          依頼内容
@@ -659,445 +653,446 @@
         </div>
 
     </section>
+    
     <script src="order.js">
-      /* =========================================
-        依頼見積システム
-      ========================================= */
+    /* =========================================
+      依頼見積システム
+    ========================================= */
 
-      let estimate = 0;
+    let estimate = 0;
 
 
-      /* =========================================
-        金額表示
-      ========================================= */
+    /* =========================================
+      金額表示
+    ========================================= */
 
-      function updateEstimate() {
+    function updateEstimate() {
 
-          document.getElementById("estimatePrice").textContent =
-              "¥" + estimate.toLocaleString();
+        document.getElementById("estimatePrice").textContent =
+            "¥" + estimate.toLocaleString();
 
-      }
+    }
 
 
-      /* =========================================
-        通常のチェックカード
-      ========================================= */
+    /* =========================================
+      通常のチェックカード
+    ========================================= */
 
-      const options =
-          document.querySelectorAll(".order-option");
+    const options =
+        document.querySelectorAll(".order-option");
 
 
-      options.forEach(option => {
+    options.forEach(option => {
 
-          const checkbox =
-              option.querySelector(".option-check");
+        const checkbox =
+            option.querySelector(".option-check");
 
 
-          if (!checkbox) return;
+        if (!checkbox) return;
 
 
-          /*
-            カードそのものをクリックした場合
-            チェックを切り替える
-          */
+        /*
+          カードそのものをクリックした場合
+          チェックを切り替える
+        */
 
-          option.addEventListener("click", event => {
+        option.addEventListener("click", event => {
 
-              /*
-                チェックボックスやボタンを
-                直接クリックした場合は何もしない
-              */
+            /*
+              チェックボックスやボタンを
+              直接クリックした場合は何もしない
+            */
 
-              if (
-                  event.target.closest(".counter") ||
-                  event.target.classList.contains("option-check")
-              ) {
-                  return;
-              }
+            if (
+                event.target.closest(".counter") ||
+                event.target.classList.contains("option-check")
+            ) {
+                return;
+            }
 
 
-              checkbox.checked =
-                  !checkbox.checked;
+            checkbox.checked =
+                !checkbox.checked;
 
 
-              updateOption(option);
+            updateOption(option);
 
-          });
+        });
 
 
-          /*
-            チェックボックスを直接クリック
-          */
+        /*
+          チェックボックスを直接クリック
+        */
 
-          checkbox.addEventListener("change", () => {
+        checkbox.addEventListener("change", () => {
 
-              updateOption(option);
+            updateOption(option);
 
-          });
+        });
 
-      });
+    });
 
 
-      /* =========================================
-        チェック状態更新
-      ========================================= */
+    /* =========================================
+      チェック状態更新
+    ========================================= */
 
-      function updateOption(option) {
+    function updateOption(option) {
 
-          const checkbox =
-              option.querySelector(".option-check");
+        const checkbox =
+            option.querySelector(".option-check");
 
 
-          if (checkbox.checked) {
+        if (checkbox.checked) {
 
-              option.classList.add("selected");
+            option.classList.add("selected");
 
-          } else {
+        } else {
 
-              option.classList.remove("selected");
+            option.classList.remove("selected");
 
-          }
+        }
 
 
-          calculateTotal();
+        calculateTotal();
 
-      }
+    }
 
 
-      /* =========================================
-        カウンター
-      ========================================= */
+    /* =========================================
+      カウンター
+    ========================================= */
 
-      const quantityOptions =
-          document.querySelectorAll(".quantity-option");
+    const quantityOptions =
+        document.querySelectorAll(".quantity-option");
 
 
-      quantityOptions.forEach(option => {
+    quantityOptions.forEach(option => {
 
-          const plus =
-              option.querySelector(".counter-plus");
+        const plus =
+            option.querySelector(".counter-plus");
 
-          const minus =
-              option.querySelector(".counter-minus");
+        const minus =
+            option.querySelector(".counter-minus");
 
-          const quantity =
-              option.querySelector(".quantity");
+        const quantity =
+            option.querySelector(".quantity");
 
 
-          if (!plus || !minus || !quantity) return;
+        if (!plus || !minus || !quantity) return;
 
 
-          let count = 0;
+        let count = 0;
 
 
-          plus.addEventListener("click", event => {
+        plus.addEventListener("click", event => {
 
-              event.stopPropagation();
+            event.stopPropagation();
 
 
-              count++;
+            count++;
 
-              quantity.textContent =
-                  count;
+            quantity.textContent =
+                count;
 
 
-              calculateTotal();
+            calculateTotal();
 
-          });
+        });
 
 
-          minus.addEventListener("click", event => {
+        minus.addEventListener("click", event => {
 
-              event.stopPropagation();
+            event.stopPropagation();
 
 
-              if (count > 0) {
+            if (count > 0) {
 
-                  count--;
+                count--;
 
-              }
+            }
 
 
-              quantity.textContent =
-                  count;
+            quantity.textContent =
+                count;
 
 
-              calculateTotal();
+            calculateTotal();
 
-          });
+        });
 
-      });
+    });
 
 
-      /* =========================================
-        BGM
-      ========================================= */
+    /* =========================================
+      BGM
+    ========================================= */
 
-      let bgmMinutes = 0;
+    let bgmMinutes = 0;
 
 
-      /*
-          0 = 0〜1分
-          1 = 1〜2分
-          2 = 2〜3分
-      */
+    /*
+        0 = 0〜1分
+        1 = 1〜2分
+        2 = 2〜3分
+    */
 
 
-      const bgmPlus =
-          document.querySelector(
-              '[data-counter="bgm"].counter-plus'
-          );
+    const bgmPlus =
+        document.querySelector(
+            '[data-counter="bgm"].counter-plus'
+        );
 
 
-      const bgmMinus =
-          document.querySelector(
-              '[data-counter="bgm"].counter-minus'
-          );
+    const bgmMinus =
+        document.querySelector(
+            '[data-counter="bgm"].counter-minus'
+        );
 
 
-      const bgmMinutesText =
-          document.getElementById(
-              "bgmMinutes"
-          );
+    const bgmMinutesText =
+        document.getElementById(
+            "bgmMinutes"
+        );
 
 
-      const bgmPriceText =
-          document.getElementById(
-              "bgmPrice"
-          );
+    const bgmPriceText =
+        document.getElementById(
+            "bgmPrice"
+        );
 
 
-      if (bgmPlus) {
+    if (bgmPlus) {
 
-          bgmPlus.addEventListener("click", () => {
+        bgmPlus.addEventListener("click", () => {
 
-              bgmMinutes++;
+            bgmMinutes++;
 
-              updateBGM();
+            updateBGM();
 
-              calculateTotal();
+            calculateTotal();
 
-          });
+        });
 
-      }
+    }
 
 
-      if (bgmMinus) {
+    if (bgmMinus) {
 
-          bgmMinus.addEventListener("click", () => {
+        bgmMinus.addEventListener("click", () => {
 
-              if (bgmMinutes > 0) {
+            if (bgmMinutes > 0) {
 
-                  bgmMinutes--;
+                bgmMinutes--;
 
-              }
+            }
 
-              updateBGM();
+            updateBGM();
 
-              calculateTotal();
+            calculateTotal();
 
-          });
+        });
 
-      }
+    }
 
 
-      /* =========================================
-        BGM表示
-      ========================================= */
+    /* =========================================
+      BGM表示
+    ========================================= */
 
-      function updateBGM() {
+    function updateBGM() {
 
-          let start = bgmMinutes;
+        let start = bgmMinutes;
 
-          let end = bgmMinutes + 1;
+        let end = bgmMinutes + 1;
 
 
-          bgmMinutesText.textContent =
-              `${start}〜${end}分`;
+        bgmMinutesText.textContent =
+            `${start}〜${end}分`;
 
 
-          /*
-              1000円スタート
-              1段階ごとに200円
-          */
+        /*
+            1000円スタート
+            1段階ごとに200円
+        */
 
-          const price =
-              1000 + (bgmMinutes * 200);
+        const price =
+            1000 + (bgmMinutes * 200);
 
 
-          bgmPriceText.textContent =
-              "¥" + price.toLocaleString();
+        bgmPriceText.textContent =
+            "¥" + price.toLocaleString();
 
-      }
+    }
 
 
-      /* =========================================
-        合計金額計算
-      ========================================= */
+    /* =========================================
+      合計金額計算
+    ========================================= */
 
-      function calculateTotal() {
+    function calculateTotal() {
 
-          let total = 0;
+        let total = 0;
 
 
-          /* =========================
-            通常チェックカード
-          ========================= */
+        /* =========================
+          通常チェックカード
+        ========================= */
 
-          document
-              .querySelectorAll(".order-option")
-              .forEach(option => {
+        document
+            .querySelectorAll(".order-option")
+            .forEach(option => {
 
-                  const checkbox =
-                      option.querySelector(".option-check");
+                const checkbox =
+                    option.querySelector(".option-check");
 
 
-                  if (!checkbox) return;
+                if (!checkbox) return;
 
 
-                  if (!checkbox.checked) return;
+                if (!checkbox.checked) return;
 
 
-                  const price =
-                      Number(
-                          option.dataset.price
-                      );
+                const price =
+                    Number(
+                        option.dataset.price
+                    );
 
 
-                  /*
-                    数量カードの場合
-                  */
+                /*
+                  数量カードの場合
+                */
 
-                  const quantityElement =
-                      option.querySelector(".quantity");
+                const quantityElement =
+                    option.querySelector(".quantity");
 
 
-                  if (quantityElement) {
+                if (quantityElement) {
 
-                      const quantity =
-                          Number(
-                              quantityElement.textContent
-                          );
+                    const quantity =
+                        Number(
+                            quantityElement.textContent
+                        );
 
 
-                      total +=
-                          price * quantity;
+                    total +=
+                        price * quantity;
 
-                  }
+                }
 
-                  /*
-                    通常カード
-                  */
+                /*
+                  通常カード
+                */
 
-                  else {
+                else {
 
-                      total += price;
+                    total += price;
 
-                  }
+                }
 
-              });
+            });
 
 
-          /* =========================
-            BGM
-          ========================= */
+        /* =========================
+          BGM
+        ========================= */
 
-          /*
-            BGMは常に最低1000円
-            0〜1分でも1000円
-          */
+        /*
+          BGMは常に最低1000円
+          0〜1分でも1000円
+        */
 
-          if (bgmMinutes >= 0) {
+        if (bgmMinutes >= 0) {
 
-              /*
-                BGMを使っているか確認
-                今回はBGMカードに＋を
-                触ったら選択扱い
-              */
+            /*
+              BGMを使っているか確認
+              今回はBGMカードに＋を
+              触ったら選択扱い
+            */
 
-              if (
-                  bgmMinutes > 0 ||
-                  document
-                      .getElementById("bgmMinutes")
-                      .dataset.selected === "true"
-              ) {
+            if (
+                bgmMinutes > 0 ||
+                document
+                    .getElementById("bgmMinutes")
+                    .dataset.selected === "true"
+            ) {
 
-                  total +=
-                      1000 +
-                      (bgmMinutes * 200);
+                total +=
+                    1000 +
+                    (bgmMinutes * 200);
 
-              }
+            }
 
-          }
+        }
 
 
-          estimate = total;
+        estimate = total;
 
-          updateEstimate();
+        updateEstimate();
 
-      }
+    }
 
 
-      /* =========================================
-        BGMカードをクリックしたら選択
-      ========================================= */
+    /* =========================================
+      BGMカードをクリックしたら選択
+    ========================================= */
 
-      const bgmCard =
-          document.querySelector(
-              ".order-special-card"
-          );
+    const bgmCard =
+        document.querySelector(
+            ".order-special-card"
+        );
 
 
-      if (bgmCard) {
+    if (bgmCard) {
 
-          bgmCard.addEventListener("click", event => {
+        bgmCard.addEventListener("click", event => {
 
-              /*
-                カウンターボタンを押した場合は
-                カード選択処理をしない
-              */
+            /*
+              カウンターボタンを押した場合は
+              カード選択処理をしない
+            */
 
-              if (
-                  event.target.closest(".counter")
-              ) {
-                  return;
-              }
+            if (
+                event.target.closest(".counter")
+            ) {
+                return;
+            }
 
 
-              const element =
-                  document.getElementById(
-                      "bgmMinutes"
-                  );
+            const element =
+                document.getElementById(
+                    "bgmMinutes"
+                );
 
 
-              const selected =
-                  element.dataset.selected === "true";
+            const selected =
+                element.dataset.selected === "true";
 
 
-              element.dataset.selected =
-                  (!selected).toString();
+            element.dataset.selected =
+                (!selected).toString();
 
 
-              bgmCard.classList.toggle(
-                  "selected",
-                  !selected
-              );
+            bgmCard.classList.toggle(
+                "selected",
+                !selected
+            );
 
 
-              calculateTotal();
+            calculateTotal();
 
-          });
+        });
 
-      }
+    }
 
 
-      /* =========================================
-        初期化
-      ========================================= */
+    /* =========================================
+      初期化
+    ========================================= */
 
-      updateBGM();
+    updateBGM();
 
-      updateEstimate();
+    updateEstimate();
     </script>
 
 </main>
