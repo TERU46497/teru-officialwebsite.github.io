@@ -1,1536 +1,877 @@
-p {
-  font-size:18px;
-  color: #111111;
-  margin-left: 25px;
-}
+/* =========================================================
+   BASE
+========================================================= */
 
-p1 {
-  color: #FFFFFF;
-  margin-left: 50px;
-  font-size:18px;
-}
-
-div {
-  color: #111111;
-  margin-left: 25px;
-}
-
-h2 {
-  color: #111111;
-  margin-left: 25px;
-}
-
-h1 {
-  color: #111111;
-  margin-left: 25px;
-}
-
-h3 {
-  background-color: #000;
-  color:#fff;
-  margin-left: 25px;
-}
-
-h4 {
-  color:#111111;
-  font-size:60px;
-  text-align:center;
-  margin-bottom:40px;
-}
-
-h5 {
-  font-size:36px;
-  color:#fff;
-  margin-left: 25px;
-}
-
-section1{
-
-    padding:90px 20px;
-
-}
-
-nav a {
-  padding: 15px 25px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Home：黒背景・白文字 */
-.nav-home {
-  background-color: #000;
-  color: #fff;
-}
-
-/* 『カッコウの巣立ち』：濃い青背景・白文字 */
-.nav-kakosuda {
-  background-color: #405d6c;
-  color: #fff;
-}
-
-/* 楽曲集：黒背景・白文字 */
-.nav-music {
-  background-color: #000;
-  color: #fff;
-}
-
-/* About：濃い青背景・白文字 */
-.nav-about {
-  background-color: #405d6c;
-  color: #fff;
-}
-
-/* 新着情報：赤・白文字 */
-.nav-order {
-  background-color: #ff3f2f;
-  color: #fff;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;             /* ヘッダーの高さ */
-
-  background-color: #000;
-  z-index: 1000;
-}
-
-footer {
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  color: #fff;
-}
-
-body {
-  margin: 0;
-  padding-top: 80px;        /* ヘッダー分だけ下げる */
-}
-
-.download-button {
-  display: inline-block;
-  padding: 12px 20px;
-  background-color: #222;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.download-button:hover {
-  background-color: #444;
-}
-
-audio {
-  width: 300px;
-  margin: 10px 0;
-}
-
-.image-box img {
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.color-set {
-  color: #BA0C19;
-}
-
-.profile-box {
-  display: flex;
-  align-items: center;
-  max-width: 900px;
-  margin: 40px auto;
-  font-family: sans-serif;
-}
-
-/* 左：丸画像 */
-.left img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50%; /* ←丸くする */
-}
-
-/* 縦線 */
-.divider {
-  width: 2px;
-  height: 280px;
-  background-color: black;
-  margin: 0 30px;
-}
-
-/* 右側 */
-.right {
-  flex: 1;
-}
-
-.right h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid black;
-  padding-bottom: 5px;
-}
-
-.content1{
-
-    max-width:900px;
-
-    margin:auto;
-
-}
-
-/* 点線っぽい表現 */
-.content p {
-  font-size: 18px;
-  letter-spacing: 2px;
-  margin: 12px 0;
-}
-
-.dropdown-btn {
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: block;
-  margin-top: 10px;
-}
-
-.character-card{
-    width: 70%;
-    max-width: 1500px;
-    min-width: 350px;
-    margin: 40px auto;
-    padding:30px;
-
-    background:#FFFFFF;
-    border:2px solid #666;
-    border-radius:15px;
-
-    color:white;
-
-    /* 影 */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-.character-content{
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-.text-area{
-    flex: 2;
-}
-
-.character-image{
-    flex: 1;
-}
-
-.character-image img{
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-}
-
-html{
+html {
     scroll-behavior: smooth;
 }
 
-/* ===========================
-   Hero
-=========================== */
-
-.kakosudaTop{
-    width:100%;
-    height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:#000;
-    opacity:0;
-    animation:heroFade 3s ease forwards;
+body {
+    margin: 0;
+    padding-top: 80px;
 }
 
-.kakosudaTop-image{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
+p {
+    font-size: 18px;
+    color: #111111;
+    margin-left: 25px;
 }
 
-@keyframes heroFade{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
+p1 {
+    color: #FFFFFF;
+    margin-left: 50px;
+    font-size: 18px;
 }
 
-/* ===========================
-   スクロールフェード
-=========================== */
-
-.fade-section{
-
-    opacity:0;
-
-    transform:translateY(80px);
-
-    transition:
-
-        opacity .8s ease,
-
-        transform .8s ease;
-
+h1 {
+    color: #111111;
+    margin-left: 25px;
 }
 
-.fade-section.show{
+h2 {
+    color: #111111;
+    margin-left: 25px;
+}
 
-    opacity:1;
+h3 {
+    background-color: #000;
+    color: #fff;
+    margin-left: 25px;
+}
 
-    transform:translateY(0);
+h4 {
+    color: #111111;
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
+h5 {
+    font-size: 36px;
+    color: #fff;
+    margin-left: 25px;
 }
 
 
-/* ===========================
-   動画
-=========================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
-.video-container{
+header {
+    position: fixed;
 
-    width:min(900px,90%);
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background-color: #000;
+
+    z-index: 1000;
+}
+
+nav a {
+    padding: 15px 25px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+/* Home */
+
+.nav-home {
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* カッコウの巣立ち */
+
+.nav-kakosuda {
+    background-color: #405d6c;
+    color: #fff;
+}
+
+
+/* Music */
+
+.nav-music {
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* About */
+
+.nav-about {
+    background-color: #405d6c;
+    color: #fff;
+}
+
+
+/* Order */
+
+.nav-order {
+    background-color: #ff3f2f;
+    color: #fff;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    width: 100%;
+    height: 100%;
+
+    background-color: #000;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.download-button {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    background-color: #222;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+}
+
+.download-button:hover {
+    background-color: #444;
+}
+
+audio {
+    width: 300px;
+    margin: 10px 0;
+}
+
+.image-box img {
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.color-set {
+    color: #BA0C19;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-box {
+    display: flex;
+
+    align-items: center;
+
+    max-width: 900px;
 
     margin: 40px auto;
 
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-
-        0 15px 45px rgba(0,0,0,.45);
-
-}
-
-.video-container iframe{
-
-    width:100%;
-
-    aspect-ratio:16/9;
-
-    border:none;
-
-}
-
-
-/* ===========================
-   目次
-=========================== */
-
-.menu-grid{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(240px,1fr));
-
-    gap:30px;
-
-}
-
-.menu-card{
-
-    background:#1b1b1b;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-decoration:none;
-
-    color:white;
-
-    text-align:center;
-
-    transition:.3s;
-
-    border:1px solid #303030;
-
-}
-
-.menu-card:hover{
-
-    transform:translateY(-10px);
-
-    background:#242424;
-
-    box-shadow:
-
-        0 15px 35px rgba(0,0,0,.35);
-
-}
-
-.menu-card img{
-
-    width:120px;
-
-    height:120px;
-
-    object-fit:contain;
-
-    margin-bottom:20px;
-
-}
-
-.menu-card span{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-}
-
-
-/* ===========================
-   Story
-=========================== */
-
-#story{
-
-    background:#131313;
-
-}
-
-#story p{
-
-    text-align:center;
-
-    font-size:20px;
-
-}
-
-
-/* ===========================
-   Character
-=========================== */
-
-#characters{
-
-    background:#FFFFFF;
-
-}
-
-
-/* ===========================
-   Credits
-=========================== */
-
-#credits{
-
-    background:#FFFFFF;
-
-}
-
-
-/* ===========================
-   Music
-=========================== */
-
-#music{
-
-    background:#FFFFFF;
-
-}
-
-
-/* スマホ */
-@media (max-width: 600px) {
-  .dropdown-content {
-    display: none;
-  }
-
-      .menu-card{
-
-        padding:25px;
-
-    }
-
-    .menu-card img{
-
-        width:100px;
-
-        height:100px;
-
-    }
-
-    .menu-card span{
-
-        font-size:18px;
-
-    }
-}
-
-.fade-item {
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.fade-section.show .fade-item {
-  opacity: 1;
-}
-
-/* 画像はすぐ */
-.fade-img {
-  transition-delay: 0s;
-}
-
-/* 文字だけ遅らせる */
-.fade-text {
-  transition-delay: 0.3s; /* ←ここがラグ */
-}
-
-.fade-text {
-  transform: translateY(10px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.fade-section.show .fade-text {
-  transform: translateY(0);
-}
-
-/* ===========================
-OST PLAYER
-=========================== */
-
-#music {
-position: relative;
-overflow: hidden;
-background: #080808;
-color: white;
-min-height: 900px;
-padding-top: 100px;
-padding-bottom: 120px;
-}
-
-/* OSTプレイヤー */
-
-.ost-player {
-
-
-position: relative;
-
-width: min(1200px, 90%);
-
-min-height: 700px;
-
-margin: 60px auto;
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-overflow: hidden;
-
-border-radius: 25px;
-
-background: #000;
-
-box-shadow:
-    0 20px 60px rgba(0,0,0,.6);
-
-
-}
-
-/* ===========================
-背景
-=========================== */
-
-.ost-background {
-
-
-position: absolute;
-
-inset: 0;
-
-background-image:
-    url("images/OST_TheDungeon.png");
-
-background-size: cover;
-
-background-position: center;
-
-opacity: .22;
-
-filter: blur(5px);
-
-transform: scale(1.08);
-
-transition:
-    background-image .6s ease,
-    opacity .6s ease;
-
-
-}
-
-/* 背景の暗幕 */
-
-.ost-player::after {
-
-
-content: "";
-
-position: absolute;
-
-inset: 0;
-
-background:
-    linear-gradient(
-        90deg,
-        rgba(0,0,0,.8),
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.8)
-    );
-
-pointer-events: none;
-
-
-}
-
-/* ===========================
-OST中央
-=========================== */
-
-.ost-content {
-
-
-position: relative;
-
-z-index: 2;
-
-width: min(800px, 75%);
-
-text-align: center;
-
-
-}
-
-/* 曲番号 */
-
-.ost-number {
-
-
-font-size: 18px;
-
-letter-spacing: 4px;
-
-color: rgba(255,255,255,.6);
-
-margin-bottom: 15px;
-
-
-}
-
-/* 曲タイトル */
-
-.ost-content h2 {
-
-
-color: white;
-
-font-size: clamp(30px, 5vw, 55px);
-
-letter-spacing: 3px;
-
-margin: 10px 0 35px;
-
-text-shadow:
-    0 4px 20px rgba(0,0,0,.8);
-
-
-}
-
-/* ===========================
-YouTube
-=========================== */
-
-.ost-video {
-
-width: 100%;
-
-overflow: hidden;
-
-border-radius: 15px;
-
-box-shadow:
-    0 15px 40px rgba(0,0,0,.6);
-
-}
-
-.ost-video iframe {
-
-width: 100%;
-
-aspect-ratio: 16 / 9;
-
-display: block;
-
-border: none;
-
-}
-
-/* ===========================
-Audio
-=========================== */
-
-.ost-content audio {
-
-
-width: 100%;
-
-margin-top: 25px;
-
-
-}
-
-/* ===========================
-左右矢印
-=========================== */
-
-.ost-arrow {
-
-
-position: absolute;
-
-top: 50%;
-
-transform: translateY(-50%);
-
-z-index: 5;
-
-width: 70px;
-
-height: 70px;
-
-border-radius: 50%;
-
-border: 1px solid rgba(255,255,255,.4);
-
-background: rgba(0,0,0,.45);
-
-color: white;
-
-font-size: 35px;
-
-cursor: pointer;
-
-transition:
-    background .3s ease,
-    transform .3s ease,
-    border-color .3s ease;
-
-
-}
-
-.ost-arrow:hover {
-
-
-background: rgba(255,255,255,.2);
-
-border-color: white;
-
-
-}
-
-.ost-prev {
-
-
-left: 30px;
-
-
-}
-
-.ost-next {
-
-
-right: 30px;
-
-
-}
-
-/* ===========================
-スライドアニメーション
-=========================== */
-
-.slide-left .ost-content {
-
-
-animation:
-    ostSlideLeft .5s ease;
-
-
-}
-
-.slide-right .ost-content {
-
-
-animation:
-    ostSlideRight .5s ease;
-
-
-}
-
-@keyframes ostSlideLeft {
-
-
-0% {
-
-    opacity: 0;
-
-    transform:
-        translateX(100px);
-
-}
-
-100% {
-
-    opacity: 1;
-
-    transform:
-        translateX(0);
-
-}
-
-
-}
-
-@keyframes ostSlideRight {
-
-
-0% {
-
-    opacity: 0;
-
-    transform:
-        translateX(-100px);
-
-}
-
-100% {
-
-    opacity: 1;
-
-    transform:
-        translateX(0);
-
-}
-
-
-}
-
-@keyframes heroFade{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
-
-/* ===========================
-   スクロールフェード
-=========================== */
-
-.fade-section{
-
-    opacity:0;
-
-    transform:translateY(80px);
-
-    transition:
-
-        opacity .8s ease,
-
-        transform .8s ease;
-
-}
-
-.fade-section.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-
-/* ===========================
-   動画
-=========================== */
-
-.video-container{
-
-    width:min(900px,90%);
-
-    margin: 40px auto;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-
-        0 15px 45px rgba(0,0,0,.45);
-
-}
-
-.video-container iframe{
-
-    width:100%;
-
-    aspect-ratio:16/9;
-
-    border:none;
-
-}
-
-
-/* ===========================
-   目次
-=========================== */
-
-.menu-grid{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(240px,1fr));
-
-    gap:30px;
-
-}
-
-.menu-card{
-
-    background:#1b1b1b;
-
-    border-radius:18px;
-
-    padding:35px;
-
-    text-decoration:none;
-
-    color:white;
-
-    text-align:center;
-
-    transition:.3s;
-
-    border:1px solid #303030;
-
-}
-
-.menu-card:hover{
-
-    transform:translateY(-10px);
-
-    background:#242424;
-
-    box-shadow:
-
-        0 15px 35px rgba(0,0,0,.35);
-
-}
-
-.menu-card img{
-
-    width:120px;
-
-    height:120px;
-
-    object-fit:contain;
-
-    margin-bottom:20px;
-
-}
-
-.menu-card span{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-}
-
-
-/* ===========================
-   Story
-=========================== */
-
-#story{
-
-    background:#131313;
-
-}
-
-#story p{
-
-    text-align:center;
-
-    font-size:20px;
-
-}
-
-
-/* ===========================
-   Character
-=========================== */
-
-#characters{
-
-    background:#FFFFFF;
-
-}
-
-
-/* ===========================
-   Credits
-=========================== */
-
-#credits{
-
-    background:#FFFFFF;
-
-}
-
-
-/* ===========================
-   Music
-=========================== */
-
-#music{
-
-    background:#FFFFFF;
-
-}
-
-
-/* スマホ */
-@media (max-width: 600px) {
-  .dropdown-content {
-    display: none;
-  }
-
-      .menu-card{
-
-        padding:25px;
-
-    }
-
-    .menu-card img{
-
-        width:100px;
-
-        height:100px;
-
-    }
-
-    .menu-card span{
-
-        font-size:18px;
-
-    }
-}
-
-.fade-item {
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
-.fade-section.show .fade-item {
-  opacity: 1;
-}
-
-/* 画像はすぐ */
-.fade-img {
-  transition-delay: 0s;
-}
-
-/* 文字だけ遅らせる */
-.fade-text {
-  transition-delay: 0.3s; /* ←ここがラグ */
-}
-
-.fade-text {
-  transform: translateY(10px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.fade-section.show .fade-text {
-  transform: translateY(0);
-}
-
-/* ===========================
-OST PLAYER
-=========================== */
-
-#music {
-position: relative;
-overflow: hidden;
-background: #080808;
-color: white;
-min-height: 900px;
-padding-top: 100px;
-padding-bottom: 120px;
-}
-
-/* OSTプレイヤー */
-
-.ost-player {
-
-
-position: relative;
-
-width: min(1200px, 90%);
-
-min-height: 700px;
-
-margin: 60px auto;
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-overflow: hidden;
-
-border-radius: 25px;
-
-background: #000;
-
-box-shadow:
-    0 20px 60px rgba(0,0,0,.6);
-
-
-}
-
-/* ===========================
-背景
-=========================== */
-
-.ost-background {
-
-
-position: absolute;
-
-inset: 0;
-
-background-image:
-    url("images/OST_TheDungeon.png");
-
-background-size: cover;
-
-background-position: center;
-
-opacity: .22;
-
-filter: blur(5px);
-
-transform: scale(1.08);
-
-transition:
-    background-image .6s ease,
-    opacity .6s ease;
-
-
-}
-
-/* 背景の暗幕 */
-
-.ost-player::after {
-
-
-content: "";
-
-position: absolute;
-
-inset: 0;
-
-background:
-    linear-gradient(
-        90deg,
-        rgba(0,0,0,.8),
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.8)
-    );
-
-pointer-events: none;
-
-
-}
-
-/* ===========================
-OST中央
-=========================== */
-
-.ost-content {
-
-
-position: relative;
-
-z-index: 2;
-
-width: min(800px, 75%);
-
-text-align: center;
-
-
-}
-
-/* 曲番号 */
-
-.ost-number {
-
-
-font-size: 18px;
-
-letter-spacing: 4px;
-
-color: rgba(255,255,255,.6);
-
-margin-bottom: 15px;
-
-
-}
-
-/* 曲タイトル */
-
-.ost-content h2 {
-
-
-color: white;
-
-font-size: clamp(30px, 5vw, 55px);
-
-letter-spacing: 3px;
-
-margin: 10px 0 35px;
-
-text-shadow:
-    0 4px 20px rgba(0,0,0,.8);
-
-
-}
-
-/* ===========================
-YouTube
-=========================== */
-
-.ost-video {
-
-width: 100%;
-
-overflow: hidden;
-
-border-radius: 15px;
-
-box-shadow:
-    0 15px 40px rgba(0,0,0,.6);
-
-}
-
-.ost-video iframe {
-
-width: 100%;
-
-aspect-ratio: 16 / 9;
-
-display: block;
-
-border: none;
-
-}
-
-/* ===========================
-Audio
-=========================== */
-
-.ost-content audio {
-
-
-width: 100%;
-
-margin-top: 25px;
-
-
-}
-
-/* ===========================
-左右矢印
-=========================== */
-
-.ost-arrow {
-
-
-position: absolute;
-
-top: 50%;
-
-transform: translateY(-50%);
-
-z-index: 5;
-
-width: 70px;
-
-height: 70px;
-
-border-radius: 50%;
-
-border: 1px solid rgba(255,255,255,.4);
-
-background: rgba(0,0,0,.45);
-
-color: white;
-
-font-size: 35px;
-
-cursor: pointer;
-
-transition:
-    background .3s ease,
-    transform .3s ease,
-    border-color .3s ease;
-
-
-}
-
-.ost-arrow:hover {
-
-
-background: rgba(255,255,255,.2);
-
-border-color: white;
-
-
-}
-
-.ost-prev {
-
-
-left: 30px;
-
-
+    font-family: sans-serif;
 }
 
-.ost-next {
 
+/* 左：丸画像 */
 
-right: 30px;
+.left img {
+    width: 250px;
+    height: 250px;
 
+    object-fit: cover;
 
+    border-radius: 50%;
 }
 
-/* ===========================
-スライドアニメーション
-=========================== */
 
-.slide-left .ost-content {
+/* 縦線 */
 
+.divider {
+    width: 2px;
+    height: 280px;
 
-animation:
-    ostSlideLeft .5s ease;
+    background-color: black;
 
-
-}
-
-.slide-right .ost-content {
-
-
-animation:
-    ostSlideRight .5s ease;
-
-
-}
-
-@keyframes ostSlideLeft {
-
-
-0% {
-
-    opacity: 0;
-
-    transform:
-        translateX(100px);
-
-}
-
-100% {
-
-    opacity: 1;
-
-    transform:
-        translateX(0);
-
-}
-
-
-}
-
-@keyframes ostSlideRight {
-
-
-0% {
-
-    opacity: 0;
-
-    transform:
-        translateX(-100px);
-
-}
-
-100% {
-
-    opacity: 1;
-
-    transform:
-        translateX(0);
-
-}
-
-
-}
-
-/* ===========================
-スマホ
-=========================== */
-
-@media (max-width: 700px) {
-
-
-.ost-player {
-
-    min-height: 600px;
-
-    width: 95%;
-
-}
-
-
-.ost-content {
-
-    width: 80%;
-
-}
-
-
-.ost-arrow {
-
-    width: 50px;
-
-    height: 50px;
-
-    font-size: 25px;
-
-}
-
-
-.ost-prev {
-
-    left: 10px;
-
+    margin: 0 30px;
 }
 
 
-.ost-next {
+/* 右 */
 
-    right: 10px;
-
+.right {
+    flex: 1;
 }
-
-
-.ost-content h2 {
 
+.right h2 {
     font-size: 28px;
 
+    margin-bottom: 10px;
+
+    border-bottom: 2px solid black;
+
+    padding-bottom: 5px;
 }
 
-/* =========================
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content1 {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.content p {
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    margin: 12px 0;
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.dropdown-btn {
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: block;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   CHARACTER
+========================================================= */
+
+.character-card {
+    width: 70%;
+
+    max-width: 1500px;
+
+    min-width: 350px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: #FFFFFF;
+
+    border: 2px solid #666;
+
+    border-radius: 15px;
+
+    color: white;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.character-content {
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+.text-area {
+    flex: 2;
+}
+
+.character-image {
+    flex: 1;
+}
+
+.character-image img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   SECTION1
+========================================================= */
+
+section1 {
+    padding: 90px 20px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.kakosudaTop {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+
+    opacity: 0;
+
+    animation:
+        heroFade 3s ease forwards;
+}
+
+.kakosudaTop-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+@keyframes heroFade {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL FADE
+========================================================= */
+
+.fade-section {
+    opacity: 0;
+
+    transform: translateY(80px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.fade-section.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.fade-item {
+    opacity: 0;
+
+    transition:
+        opacity 1.2s ease;
+}
+
+.fade-section.show .fade-item {
+    opacity: 1;
+}
+
+
+/* 画像 */
+
+.fade-img {
+    transition-delay: 0s;
+}
+
+
+/* 文字 */
+
+.fade-text {
+    transform: translateY(10px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+
+    transition-delay: 0.3s;
+}
+
+.fade-section.show .fade-text {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.video-container {
+    width: min(900px, 90%);
+
+    margin: 40px auto;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, .45);
+}
+
+.video-container iframe {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border: none;
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.menu-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 30px;
+}
+
+.menu-card {
+    background: #1b1b1b;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    text-decoration: none;
+
+    color: white;
+
+    text-align: center;
+
+    transition: .3s;
+
+    border: 1px solid #303030;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+
+    background: #242424;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .35);
+}
+
+.menu-card img {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+}
+
+.menu-card span {
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+#story {
+    background: #131313;
+}
+
+#story p {
+    text-align: center;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   WHITE SECTIONS
+========================================================= */
+
+#characters {
+    background: #FFFFFF;
+}
+
+#credits {
+    background: #FFFFFF;
+}
+
+#music {
+    background: #FFFFFF;
+}
+
+
+/* =========================================================
+   OST PLAYER
+========================================================= */
+
+#music {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #080808;
+
+    color: white;
+
+    min-height: 900px;
+
+    padding-top: 100px;
+
+    padding-bottom: 120px;
+}
+
+
+.ost-player {
+    position: relative;
+
+    width: min(1200px, 90%);
+
+    min-height: 700px;
+
+    margin: 60px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #000;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .6);
+}
+
+
+/* 背景 */
+
+.ost-background {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("images/OST_TheDungeon.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    opacity: .22;
+
+    filter: blur(5px);
+
+    transform: scale(1.08);
+
+    transition:
+        background-image .6s ease,
+        opacity .6s ease;
+}
+
+
+/* 暗幕 */
+
+.ost-player::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, .8),
+            rgba(0, 0, 0, .45),
+            rgba(0, 0, 0, .8)
+        );
+
+    pointer-events: none;
+}
+
+
+/* OST中央 */
+
+.ost-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(800px, 75%);
+
+    text-align: center;
+}
+
+
+/* 曲番号 */
+
+.ost-number {
+    font-size: 18px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255, 255, 255, .6);
+
+    margin-bottom: 15px;
+}
+
+
+/* 曲タイトル */
+
+.ost-content h2 {
+    color: white;
+
+    font-size: clamp(30px, 5vw, 55px);
+
+    letter-spacing: 3px;
+
+    margin: 10px 0 35px;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, .8);
+}
+
+
+/* YouTube */
+
+.ost-video {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .6);
+}
+
+.ost-video iframe {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    display: block;
+
+    border: none;
+}
+
+
+/* Audio */
+
+.ost-content audio {
+    width: 100%;
+
+    margin-top: 25px;
+}
+
+
+/* OST矢印 */
+
+.ost-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, .4);
+
+    background: rgba(0, 0, 0, .45);
+
+    color: white;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+.ost-arrow:hover {
+    background: rgba(255, 255, 255, .2);
+
+    border-color: white;
+}
+
+.ost-prev {
+    left: 30px;
+}
+
+.ost-next {
+    right: 30px;
+}
+
+
+/* OSTスライド */
+
+.slide-left .ost-content {
+    animation:
+        ostSlideLeft .5s ease;
+}
+
+.slide-right .ost-content {
+    animation:
+        ostSlideRight .5s ease;
+}
+
+@keyframes ostSlideLeft {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+}
+
+@keyframes ostSlideRight {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* =========================================================
    NEWS
-========================= */
+========================================================= */
 
 .news-section {
     position: relative;
 
     width: 100%;
+
     padding: 80px 0;
 
     background: #111;
+
     color: white;
 
     overflow: hidden;
 }
 
+
+/* NEWSタイトル */
+
 .news-section > h2 {
+    margin: 0 0 40px 0;
+
+    padding: 0;
+
     color: white;
-    margin: 0 0 40px;
+
+    background: transparent;
+
     text-align: center;
 
     font-size: 32px;
 }
 
 
-/* =========================
-   CAROUSEL
-========================= */
+/* =========================================================
+   NEWS CAROUSEL
+========================================================= */
 
 .news-carousel {
     position: relative;
 
     width: 100%;
+
     height: 390px;
 
     overflow: hidden;
+
+    margin-left: 0 !important;
 }
 
 
-/* 左右フェード */
+/* =========================================================
+   左右フェード
+========================================================= */
 
 .news-carousel::before,
 .news-carousel::after {
     content: "";
 
     position: absolute;
+
     top: 0;
 
     width: 180px;
@@ -1541,65 +882,92 @@ animation:
     pointer-events: none;
 }
 
+
 .news-carousel::before {
     left: 0;
 
-    background: linear-gradient(
-        to right,
-        #111 0%,
-        rgba(17, 17, 17, 0) 100%
-    );
+    background:
+        linear-gradient(
+            to right,
+            #111 0%,
+            rgba(17, 17, 17, 0) 100%
+        );
 }
+
 
 .news-carousel::after {
     right: 0;
 
-    background: linear-gradient(
-        to left,
-        #111 0%,
-        rgba(17, 17, 17, 0) 100%
-    );
+    background:
+        linear-gradient(
+            to left,
+            #111 0%,
+            rgba(17, 17, 17, 0) 100%
+        );
 }
 
 
-/* =========================
-   TRACK
-========================= */
+/* =========================================================
+   NEWS TRACK
+========================================================= */
 
 .news-track {
-    position: absolute;
+    position: absolute !important;
 
     top: 0;
+
     left: 0;
 
-    display: flex;
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    flex-wrap: nowrap !important;
+
     align-items: center;
 
     gap: 24px;
 
+    width: max-content !important;
+
     height: 100%;
 
-    width: max-content;
+    margin: 0 !important;
 
-    transition: transform 0.5s ease;
+    padding: 0 !important;
+
+    transition:
+        transform .5s ease;
 }
 
 
-/* =========================
-   CARD
-========================= */
+/* =========================================================
+   NEWS CARD
+========================================================= */
 
 .news-card {
-    width: 320px;
-    height: 350px;
+    position: relative;
 
-    flex-shrink: 0;
+    display: block !important;
+
+    flex: 0 0 320px !important;
+
+    width: 320px !important;
+
+    height: 350px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    box-sizing: border-box;
 
     overflow: hidden;
 
     background: #1c1c1c;
 
-    border: 1px solid rgba(255,255,255,.12);
+    border: 1px solid rgba(255, 255, 255, .12);
+
     border-radius: 16px;
 
     cursor: pointer;
@@ -1614,12 +982,10 @@ animation:
         transform .4s ease,
         opacity .4s ease,
         filter .4s ease;
-
-    box-sizing: border-box;
 }
 
 
-/* 中央カード */
+/* 中央 */
 
 .news-card.news-active {
     opacity: 1;
@@ -1630,75 +996,108 @@ animation:
 }
 
 
-/* =========================
-   IMAGE
-========================= */
+/* =========================================================
+   NEWS IMAGE
+========================================================= */
 
 .news-card-image {
-    width: 100%;
-    height: 175px;
+    display: block !important;
 
-    display: block;
+    width: 100% !important;
+
+    height: 175px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
 
     object-fit: cover;
 
     background: #333;
+
+    box-sizing: border-box;
 }
 
 
-/* =========================
-   CONTENT
-========================= */
+/* =========================================================
+   NEWS CONTENT
+========================================================= */
 
 .news-card-content {
-    padding: 18px;
+    display: block !important;
+
+    width: 100%;
+
+    margin: 0 !important;
+
+    padding: 18px !important;
+
+    box-sizing: border-box;
 }
 
 
-/* 日付・カテゴリ */
+/* 日付・カテゴリー */
 
 .news-card-meta {
-    display: flex;
+    display: flex !important;
+
+    flex-direction: row !important;
 
     gap: 10px;
 
-    margin: 0 0 8px;
+    margin: 0 0 8px 0 !important;
 
-    color: rgba(255,255,255,.5);
+    padding: 0 !important;
+
+    color: rgba(255, 255, 255, .5);
+
+    background: transparent;
 
     font-size: 12px;
 }
 
 
-/* タイトル */
+/* =========================================================
+   NEWS TITLE
+========================================================= */
 
 .news-card .news-card-title {
-    margin: 0 0 10px;
+    display: block !important;
 
-    padding: 0;
+    margin: 0 0 10px 0 !important;
 
-    background: transparent;
+    padding: 0 !important;
 
-    color: white;
+    background: transparent !important;
+
+    color: white !important;
 
     font-size: 20px;
 
     line-height: 1.4;
+
+    text-align: left;
 }
 
 
-/* 概要 */
+/* =========================================================
+   NEWS DESCRIPTION
+========================================================= */
 
 .news-card .news-card-description {
-    margin: 0;
+    display: -webkit-box !important;
 
-    color: rgba(255,255,255,.7);
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    color: rgba(255, 255, 255, .7);
+
+    background: transparent;
 
     font-size: 14px;
 
     line-height: 1.6;
-
-    display: -webkit-box;
 
     -webkit-line-clamp: 2;
 
@@ -1708,31 +1107,40 @@ animation:
 }
 
 
-/* =========================
-   ARROWS
-========================= */
+/* =========================================================
+   NEWS ARROWS
+========================================================= */
 
 .news-arrow {
-    position: absolute;
+    position: absolute !important;
 
-    top: 50%;
+    top: 50% !important;
 
-    transform: translateY(-50%);
+    transform: translateY(-50%) !important;
 
     z-index: 20;
 
-    width: 50px;
-    height: 50px;
+    width: 50px !important;
 
-    border: 1px solid rgba(255,255,255,.3);
+    height: 50px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    border: 1px solid rgba(255, 255, 255, .3);
 
     border-radius: 50%;
 
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
 
     color: white;
 
     font-size: 24px;
+
+    line-height: 50px;
+
+    text-align: center;
 
     cursor: pointer;
 
@@ -1743,29 +1151,32 @@ animation:
         transform .2s ease;
 }
 
+
 .news-arrow:hover {
-    background: rgba(255,255,255,.2);
+    background: rgba(255, 255, 255, .2);
 
     transform:
         translateY(-50%)
-        scale(1.08);
+        scale(1.08) !important;
 }
+
 
 .news-arrow-left {
-    left: 30px;
+    left: 30px !important;
 }
+
 
 .news-arrow-right {
-    right: 30px;
+    right: 30px !important;
 }
 
 
-/* =========================
-   MODAL
-========================= */
+/* =========================================================
+   NEWS MODAL
+========================================================= */
 
 .news-modal {
-    position: fixed;
+    position: fixed !important;
 
     inset: 0;
 
@@ -1774,24 +1185,36 @@ animation:
     display: none;
 
     align-items: center;
+
     justify-content: center;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
 }
+
 
 .news-modal.active {
-    display: flex;
+    display: flex !important;
 }
 
+
+/* 背景 */
 
 .news-modal-overlay {
     position: absolute;
 
     inset: 0;
 
-    background: rgba(0,0,0,.75);
+    margin: 0 !important;
+
+    background: rgba(0, 0, 0, .75);
 
     backdrop-filter: blur(10px);
 }
 
+
+/* モーダルカード */
 
 .news-modal-card {
     position: relative;
@@ -1804,57 +1227,95 @@ animation:
 
     overflow: auto;
 
+    margin: 0 !important;
+
+    padding: 0 !important;
+
     background: #181818;
 
     border-radius: 20px;
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.7);
+        0 30px 100px rgba(0, 0, 0, .7);
 }
 
 
+/* モーダル画像 */
+
 .news-modal-card > img {
-    width: 100%;
+    display: block !important;
+
+    width: 100% !important;
 
     max-height: 350px;
 
-    display: block;
+    height: auto;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
 
     object-fit: cover;
 }
 
 
+/* モーダル本文 */
+
 .news-modal-content {
-    padding: 30px;
+    display: block !important;
+
+    margin: 0 !important;
+
+    padding: 30px !important;
+
+    box-sizing: border-box;
 }
 
 
+/* メタ情報 */
+
 .news-modal-meta {
-    display: flex;
+    display: flex !important;
+
+    flex-direction: row !important;
 
     gap: 12px;
 
-    margin-bottom: 10px;
+    margin: 0 0 10px 0 !important;
 
-    color: rgba(255,255,255,.5);
+    padding: 0 !important;
+
+    color: rgba(255, 255, 255, .5);
 
     font-size: 13px;
 }
 
 
-.news-modal-content h2 {
-    margin: 0 0 20px;
+/* モーダルタイトル */
 
-    color: white;
+.news-modal-content h2 {
+    margin: 0 0 20px 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: white !important;
 
     font-size: 30px;
 }
 
 
-.news-modal-content p {
-    margin: 0;
+/* モーダル本文 */
 
-    color: rgba(255,255,255,.8);
+.news-modal-content p {
+    margin: 0 0 25px 0 !important;
+
+    padding: 0 !important;
+
+    color: rgba(255, 255, 255, .8);
+
+    background: transparent;
 
     line-height: 1.8;
 
@@ -1862,52 +1323,164 @@ animation:
 }
 
 
-.news-modal-close {
-    position: absolute;
+/* Read More */
 
-    top: 15px;
-    right: 15px;
+.news-modal-content #modalLink {
+    display: inline-block !important;
+
+    margin: 0 !important;
+
+    padding: 10px 18px;
+
+    background: white;
+
+    color: #111;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   MODAL CLOSE
+========================================================= */
+
+.news-modal-close {
+    position: absolute !important;
+
+    top: 15px !important;
+
+    right: 15px !important;
 
     z-index: 5;
 
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+
+    height: 40px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
 
     border: none;
 
     border-radius: 50%;
 
-    background: rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, .7);
 
     color: white;
 
     font-size: 26px;
 
+    line-height: 40px;
+
+    text-align: center;
+
     cursor: pointer;
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 700px) {
 
-    .news-card {
-        width: 280px;
+    /* dropdown */
+
+    .dropdown-content {
+        display: none;
     }
+
+
+    /* menu */
+
+    .menu-card {
+        padding: 25px;
+    }
+
+    .menu-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .menu-card span {
+        font-size: 18px;
+    }
+
+
+    /* OST */
+
+    .ost-player {
+        min-height: 600px;
+
+        width: 95%;
+    }
+
+    .ost-content {
+        width: 80%;
+    }
+
+    .ost-arrow {
+        width: 50px;
+        height: 50px;
+
+        font-size: 25px;
+    }
+
+    .ost-prev {
+        left: 10px;
+    }
+
+    .ost-next {
+        right: 10px;
+    }
+
+    .ost-content h2 {
+        font-size: 28px;
+    }
+
+
+    /* NEWS */
+
+    .news-card {
+        flex-basis: 280px !important;
+
+        width: 280px !important;
+    }
+
 
     .news-carousel::before,
     .news-carousel::after {
         width: 80px;
     }
 
+
     .news-arrow-left {
-        left: 10px;
+        left: 10px !important;
     }
 
+
     .news-arrow-right {
-        right: 10px;
+        right: 10px !important;
     }
-  }
+
+
+    .news-modal-card {
+        width: 92vw;
+    }
+
+
+    .news-modal-content {
+        padding: 22px !important;
+    }
+
+
+    .news-modal-content h2 {
+        font-size: 24px;
+    }
+
 }
