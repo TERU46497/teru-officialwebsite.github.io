@@ -3572,3 +3572,311 @@ section1 {
     }
 
 }
+
+/* =========================================================
+   SITE FOOTER
+========================================================= */
+
+.site-footer {
+
+    position: relative;
+
+    margin-top: 120px;
+
+    padding: 80px 6% 25px;
+
+    background: #0b0b0b;
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* 背景のアクセントライン */
+
+.site-footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #555,
+            transparent
+        );
+}
+
+
+/* 背景の巨大TERU */
+
+.site-footer::after {
+
+    content: "TERU";
+
+    position: absolute;
+
+    right: -30px;
+    bottom: -80px;
+
+    font-size: 220px;
+
+    font-weight: 900;
+
+    letter-spacing: -10px;
+
+    color: rgba(255,255,255,.025);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.footer-inner {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: min(1200px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 80px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-logo {
+
+    font-size: 64px;
+
+    font-weight: 900;
+
+    letter-spacing: 8px;
+
+    line-height: 1;
+}
+
+
+.footer-tagline {
+
+    margin: 15px 0 25px;
+
+    color: rgba(255,255,255,.5);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+
+.footer-copy {
+
+    margin: 0;
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 14px;
+
+    line-height: 2;
+
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.footer-links,
+.footer-contact {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+.footer-links h3,
+.footer-contact h3 {
+
+    margin: 0 0 20px;
+
+    padding: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+
+.footer-links a,
+.footer-contact a {
+
+    position: relative;
+
+    display: inline-block;
+
+    margin: 6px 0;
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+/* ホバー時のライン */
+
+.footer-links a::after,
+.footer-contact a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -3px;
+
+    width: 100%;
+    height: 1px;
+
+    background: white;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.footer-links a:hover,
+.footer-contact a:hover {
+
+    color: white;
+
+    transform: translateX(5px);
+}
+
+
+.footer-links a:hover::after,
+.footer-contact a:hover::after {
+
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: min(1200px, 100%);
+
+    margin: 70px auto 0;
+
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+    color: rgba(255,255,255,.35);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .site-footer {
+
+        padding:
+            60px 25px 20px;
+
+    }
+
+
+    .footer-inner {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .footer-logo {
+
+        font-size: 48px;
+
+    }
+
+
+    .footer-bottom {
+
+        margin-top: 50px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .site-footer::after {
+
+        font-size: 120px;
+
+        right: -20px;
+
+        bottom: -30px;
+
+    }
+
+}
