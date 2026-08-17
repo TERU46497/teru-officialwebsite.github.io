@@ -49,6 +49,53 @@
 
     </section>
 
+    <h5>音楽：</h5>
+    <h5>「カッコウの巣立ち」OST</h5>
+
+    <div class="ost-player">
+
+        <!-- 背景画像 -->
+        <div class="ost-background"></div>
+
+        <!-- 左矢印 -->
+        <button class="ost-arrow ost-prev" aria-label="前の曲">
+            &#10094;
+        </button>
+
+        <!-- OST本体 -->
+        <div class="ost-content">
+
+            <div class="ost-number">
+                <span id="ost-current">01</span>
+                /
+                <span id="ost-total">10</span>
+            </div>
+
+            <h2 id="ost-title">The Dungeon</h2>
+
+            <div class="ost-video">
+                <iframe
+                    id="ost-youtube"
+                    src="https://www.youtube.com/vKr8CvUSzsc"
+                    title="YouTube video player"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <audio id="ost-audio" controls>
+                <source src="Sound/TheDungeon.wav" type="audio/wav">
+            </audio>
+
+        </div>
+
+        <!-- 右矢印 -->
+        <button class="ost-arrow ost-next" aria-label="次の曲">
+            &#10095;
+        </button>
+
+    </div>
+    </section>
+
     <script>
 
     /* =========================================================
@@ -213,6 +260,150 @@
             file: "Sound/SFX26.wav"
         },
 
+        {
+            name: "SFX27",
+            description: "12フレットハーモニクス",
+            file: "Sound/SFX27.wav"
+        },
+
+        {
+            name: "SFX28",
+            description: "宇宙人のダメージ音",
+            file: "Sound/SFX28.wav"
+        },
+
+        {
+            name: "SFX29",
+            description: "「パンッ！」って手を叩く音",
+            file: "Sound/SFX29.wav"
+        },
+
+        {
+            name: "SFX30",
+            description: "ドアが閉まる音",
+            file: "Sound/SFX30.wav"
+        },
+
+        {
+            name: "SFX31",
+            description: "ドアが開く音",
+            file: "Sound/SFX31.wav"
+        },
+
+        {
+            name: "SFX32",
+            description: "Enterキーを押す音",
+            file: "Sound/SFX32.wav"
+        },
+
+        {
+            name: "SFX33",
+            description: "びっくりする音(風と機械音が混ざったような音)",
+            file: "Sound/SFX33.wav"
+        },
+
+        {
+            name: "SFX34",
+            description: "リンゴかじるような音",
+            file: "Sound/SFX34.wav"
+        },
+
+        {
+            name: "SFX35",
+            description: "漁るような音",
+            file: "Sound/SFX35.wav"
+        },
+
+        {
+            name: "SFX36",
+            description: "風を切る音",
+            file: "Sound/SFX36.wav"
+        },
+
+        {
+            name: "SFX37",
+            description: "小動物の鳴き声「キュイッ！」",
+            file: "Sound/SFX37.wav"
+        },
+
+        {
+            name: "SFX38",
+            description: "ペタペタ足音",
+            file: "Sound/SFX38.wav"
+        },
+
+        {
+            name: "SFX39",
+            description: "セレクト音",
+            file: "Sound/SFX39.wav"
+        },
+        
+        {
+            name: "SFX40",
+            description: "留め具を外す音",
+            file: "Sound/SFX40.wav"
+        },
+
+        {
+            name: "SFX41",
+            description: "シャボン玉が弾ける音",
+            file: "Sound/SFX41.wav"
+        },
+
+        {
+            name: "SFX42",
+            description: "蟲の鳴き声",
+            file: "Sound/SFX42.wav"
+        },
+
+        {
+            name: "SFX43",
+            description: "小銭の音",
+            file: "Sound/SFX43.wav"
+        },
+
+        {
+            name: "SFX44",
+            description: "「パチン！」って音",
+            file: "Sound/SFX44.wav"
+        },
+
+        {
+            name: "SFX45",
+            description: "深い「ポン！」って音",
+            file: "Sound/SFX45.wav"
+        },
+
+        {
+            name: "SFX46",
+            description: "リロード音",
+            file: "Sound/SFX46.wav"
+        },
+
+        {
+            name: "SFX47",
+            description: "金属のぶつかる音(高め)",
+            file: "Sound/SFX47.wav"
+        },
+
+        {
+            name: "SFX48",
+            description: "金属のぶつかる音(低め)",
+            file: "Sound/SFX48.wav"
+        },
+
+        {
+            name: "SFX49",
+            description: "ロボットの動く音",
+            file: "Sound/SFX49.wav"
+        },
+
+        {
+            name: "SFX50",
+            description: "水滴の落ちる音",
+            file: "Sound/SFX50.wav"
+        }
+
     ];
 
 
@@ -307,7 +498,12 @@
     });
 
     </script>
+    
+    <script> const ostTracks = [ { title: "The Dungeon", youtube: "vKr8CvUSzsc", audio: "Sound/TheDungeon.wav", background: "images/OST_TheDungeon.png" }, { title: "Asynchronous", youtube: "SC6wXA1xWHw", audio: "Sound/Savior.wav", background: "images/OST_Asynchronous.png" }, { title: "Savior", youtube: "-TlCPBAhTDY", audio: "Sound/Savior.wav", background: "images/OST_Asynchronous.png" }, { title: "tH3 Fün g4Me", youtube: "wSuWcZs6zEc", audio: "Sound/tH3 Fün g4Me.wav", background: "images/OST_FunGame.png" }, { title: "Labor Town", youtube: "AZ-HwHdLhko", audio: "Sound/LaborTown.wav", background: "images/OST_LaborTown.png" }, { title: "Chinpilas", youtube: "uDGyLk8ICos", audio: "Sound/Chinpilas.wav", background: "images/OST_Chinpilas.png" }, { title: "Battle!!", youtube: "ZSIXEKfher8", audio: "Sound/Battle!!.wav", background: "images/OST_Battle.png" }, { title: "Despair", youtube: "NkEQPd08bxk", audio: "Sound/Despair.wav", background: "images/OST_Despair.png" }, { title: "Death", youtube: "B7zlMcChqdY", audio: "Sound/Death.wav", background: "images/OST_Death.png" }, { title: "Final Battle", youtube: "WOJksH8itLI", audio: "Sound/FinalBattle.wav", background: "images/OST_FinalBattle.png" }, { title: "Regret", youtube: "APtPjdixhKk", audio: "Sound/Regret.mp3", background: "images/OST_Regret.png" }, { title: "Save The Girl", youtube: "IjpnqSuxloE?si=I2BE7XRRgDRqIbVb", audio: "Sound/SaveTheGirl.wav", background: "images/OST_TheDungeon.png" }, { title: "Time To Fly", youtube: "T2Fohc8FhHI", audio: "Sound/TimeToFly.wav", background: "images/OST_Asynchronous.png" } ]; let currentOst = 0; const ostPlayer = document.querySelector(".ost-player"); const ostBackground = document.querySelector(".ost-background"); const ostTitle = document.getElementById("ost-title"); const ostYoutube = document.getElementById("ost-youtube"); const ostAudio = document.getElementById("ost-audio"); const ostCurrent = document.getElementById("ost-current"); const ostTotal = document.getElementById("ost-total"); const prevButton = document.querySelector(".ost-prev"); const nextButton = document.querySelector(".ost-next"); ostTotal.textContent = String(ostTracks.length).padStart(2, "0"); function updateOst(index, direction) { const track = ostTracks[index]; ostPlayer.classList.remove("slide-left"); ostPlayer.classList.remove("slide-right"); void ostPlayer.offsetWidth; if (direction === "next") { ostPlayer.classList.add("slide-left"); } else { ostPlayer.classList.add("slide-right"); } ostTitle.textContent = track.title; ostCurrent.textContent = String(index + 1).padStart(2, "0"); ostYoutube.src = "https://www.youtube.com/embed/" + track.youtube; ostAudio.src = track.audio;  ostAudio.pause(); ostBackground.style.backgroundImage = `url("${track.background}")`; } nextButton.addEventListener("click", () => { currentOst++; if (currentOst >= ostTracks.length) { currentOst = 0; } updateOst(currentOst, "next"); }); prevButton.addEventListener("click", () => { currentOst--; if (currentOst < 0) { currentOst = ostTracks.length - 1; } updateOst(currentOst, "prev"); }); updateOst(currentOst, "next"); </script>
+
+    <script src="search.js"></script>
 </body>
+
 <footer>
     <h5>お問い合わせ先：</h5>
     <li>メールアドレス: terushop4649@gmail.com</li>

@@ -21,6 +21,18 @@
       <a class="nav-order"href="Order.html">依頼</a>
     </nav>
 
+    <div class="site-search">
+        <input
+            type="search"
+            id="siteSearch"
+            placeholder="サイト内を検索..."
+        >
+
+        <button id="searchButton">
+            🔍
+        </button>
+    </div>
+
   </header>
 
     <section class="portfolio-hero">
@@ -427,6 +439,147 @@
 
       updateCarousel();
     </script>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const searchInput = document.getElementById("siteSearch");
+        const searchButton = document.getElementById("searchButton");
+
+        if (!searchInput || !searchButton) return;
+
+
+        /* =========================
+        検索対象ページ
+        ========================= */
+
+        const pages = [
+            "index.html",
+            "AboutTERU.html",
+            "KakoSuda.html",
+            "MusicPage.html",
+            "Order.html"
+        ];
+
+
+        /* =========================
+        検索
+        ========================= */
+
+        async function searchSite() {
+
+            const keyword = searchInput.value.trim();
+
+            if (!keyword) return;
+
+
+            const encodedKeyword =
+                encodeURIComponent(keyword);
+
+
+            for (const page of pages) {
+
+                try {
+
+                    const response =
+                        await fetch(page);
+
+                    if (!response.ok) continue;
+
+
+                    const html =
+                        await response.text();
+
+
+                    /*
+                        HTMLタグを除去して
+                        本文だけ検索
+                    */
+
+                    const parser =
+                        new DOMParser();
+
+                    const doc =
+                        parser.parseFromString(
+                            html,
+                            "text/html"
+                        );
+
+
+                    const text =
+                        doc.body.innerText;
+
+
+                    if (
+                        text
+                            .toLowerCase()
+                            .includes(keyword.toLowerCase())
+                    ) {
+
+                        /*
+                            検索結果ページへ移動
+                        */
+
+                        window.location.href =
+                            page +
+                            "?search=" +
+                            encodedKeyword;
+
+                        return;
+
+                    }
+
+                } catch (error) {
+
+                    console.error(
+                        "検索エラー:",
+                        page,
+                        error
+                    );
+
+                }
+
+            }
+
+
+            alert(
+                `「${keyword}」は見つかりませんでした。`
+            );
+
+        }
+
+
+        /* =========================
+        ボタン
+        ========================= */
+
+        searchButton.addEventListener(
+            "click",
+            searchSite
+        );
+
+
+        /* =========================
+        Enterキー
+        ========================= */
+
+        searchInput.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "Enter") {
+
+                    searchSite();
+
+                }
+
+            }
+        );
+
+    });
+    </script>
+
+    <script src="search.js"></script>
     
 </body>
 <footer>
