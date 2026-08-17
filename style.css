@@ -77,25 +77,16 @@ header {
     padding: 0 25px;
 }
 
-header nav {
-    display: flex;
-    height: 100%;
-    align-items: center;
-}
-
 nav a {
-    display: flex;
-    align-items: center;
-
-    height: 90px;
-    padding: 0 25px;
-
-    box-sizing: border-box;
+    padding: 15px 25px;
 
     text-decoration: none;
-    font-weight: bold;
 
-    transform: translateY(5px);
+    font-weight: bold;
+}
+
+header nav {
+    transform: translateY(8px);
 }
 
 /* Home */
