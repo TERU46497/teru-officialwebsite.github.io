@@ -69,6 +69,12 @@ header {
     background-color: #000;
 
     z-index: 1000;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 0 25px;
 }
 
 nav a {
@@ -2642,52 +2648,345 @@ section1 {
 
 }
 
-/* =========================
-   サイト内検索
-========================= */
+/* =========================================================
+   ORDER
+========================================================= */
 
-.site-search {
+.order-section {
+
+    width: min(1000px, 90%);
+
+    margin: 90px auto 120px;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.order-title {
+
+    margin: 0 0 35px 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-size: 32px;
+
+    text-align: center;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.order-list {
+
     display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.order-card {
+
+    position: relative;
+
+    display: flex;
+
     align-items: center;
-    gap: 8px;
-    margin-left: auto;
+
+    min-height: 130px;
+
+    padding: 25px 30px;
+
+    box-sizing: border-box;
+
+    background: #f5f5f5;
+
+    border: 1px solid #ddd;
+
+    border-radius: 18px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+
 }
 
-.site-search input {
-    width: 220px;
-    padding: 10px 14px;
 
-    border: 1px solid #ccc;
-    border-radius: 20px;
+/* =========================================================
+   HOVER
+========================================================= */
 
-    background: white;
+.order-card:hover {
 
-    font-size: 14px;
-    outline: none;
+    transform:
+        translateY(-8px);
 
-    transition: 0.2s;
+    background: #fff;
+
+    border-color: #bbb;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.15);
+
 }
 
-.site-search input:focus {
-    border-color: #555;
-    box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.order-logo {
+
+    width: 75px;
+
+    height: 75px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-right: 25px;
+
+    border-radius: 16px;
+
+    background: #111;
+
+    overflow: hidden;
+
 }
 
-.site-search button {
-    width: 40px;
-    height: 40px;
 
-    border: none;
-    border-radius: 50%;
+.order-logo img {
 
-    background: #222;
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: contain;
+
+}
+
+
+/* メールアイコン */
+
+.order-mail-icon {
+
     color: white;
 
-    cursor: pointer;
+    font-size: 38px;
 
-    transition: 0.2s;
 }
 
-.site-search button:hover {
-    transform: scale(1.08);
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.order-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.order-info h3 {
+
+    margin: 0 0 8px 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-size: 21px;
+
+    line-height: 1.4;
+
+}
+
+
+.order-info p {
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    color: #777 !important;
+
+    font-size: 14px !important;
+
+}
+
+
+/* =========================================================
+   ACTION
+========================================================= */
+
+.order-action {
+
+    margin-left: 30px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    transform: translateX(-5px);
+
+    transition:
+        transform .3s ease,
+        color .3s ease;
+
+}
+
+
+.order-card:hover .order-action {
+
+    color: #111;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   LEFT ACCENT
+========================================================= */
+
+.order-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 5px;
+
+    height: 100%;
+
+    background: #111;
+
+    transform:
+        scaleY(0);
+
+    transform-origin: center;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.order-card:hover::before {
+
+    transform:
+        scaleY(1);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .order-section {
+
+        width: 90%;
+
+        margin-top: 60px;
+
+    }
+
+
+    .order-card {
+
+        min-height: 110px;
+
+        padding: 20px;
+
+    }
+
+
+    .order-logo {
+
+        width: 60px;
+
+        height: 60px;
+
+        margin-right: 15px;
+
+    }
+
+
+    .order-logo img {
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+    .order-info h3 {
+
+        font-size: 16px;
+
+    }
+
+
+    .order-info p {
+
+        font-size: 12px !important;
+
+    }
+
+
+    .order-action {
+
+        display: none;
+
+    }
+
 }
