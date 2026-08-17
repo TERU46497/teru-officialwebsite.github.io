@@ -120,10 +120,10 @@ nav a {
 
 footer {
     width: 100%;
-    margin: 0;
-    padding: 0;
+    height: 100%;
 
     background-color: #000;
+
     color: #fff;
 }
 
@@ -3569,10 +3569,10 @@ section1 {
     position: relative;
 
     width: 100%;
-    margin: 120px 0 0;
-    padding: 80px 6% 25px;
-
     box-sizing: border-box;
+
+    margin-top: 120px;
+    padding: 80px 6% 25px;
 
     background: #0b0b0b;
     color: white;
@@ -3580,10 +3580,12 @@ section1 {
     overflow: hidden;
 }
 
-/* 背景のアクセントライン */
+
+/* =========================================================
+   TOP ACCENT LINE
+========================================================= */
 
 .site-footer::before {
-
     content: "";
 
     position: absolute;
@@ -3609,21 +3611,22 @@ section1 {
 ========================================================= */
 
 .footer-inner {
-
     position: relative;
-
     z-index: 1;
 
     width: min(1200px, 100%);
-
-    margin: auto;
+    margin: 0 auto;
 
     display: grid;
 
     grid-template-columns:
-        2fr 1fr 1fr;
+        minmax(0, 2fr)
+        minmax(140px, 1fr)
+        minmax(140px, 1fr);
 
-    gap: 80px;
+    gap: 60px;
+
+    box-sizing: border-box;
 }
 
 
@@ -3631,20 +3634,12 @@ section1 {
    BRAND
 ========================================================= */
 
-.footer-logo {
-
-    font-size: 64px;
-
-    font-weight: 900;
-
-    letter-spacing: 8px;
-
-    line-height: 1;
+.footer-brand {
+    min-width: 0;
 }
 
 
 .footer-tagline {
-
     margin: 15px 0 25px;
 
     color: rgba(255,255,255,.5);
@@ -3652,11 +3647,12 @@ section1 {
     font-size: 12px;
 
     letter-spacing: 2px;
+
+    line-height: 1.6;
 }
 
 
 .footer-copy {
-
     margin: 0;
 
     color: rgba(255,255,255,.7);
@@ -3665,15 +3661,17 @@ section1 {
 
     line-height: 2;
 
+    overflow-wrap: anywhere;
 }
 
 
 /* =========================================================
-   LINKS
+   LINKS / CONTACT
 ========================================================= */
 
 .footer-links,
 .footer-contact {
+    min-width: 0;
 
     display: flex;
 
@@ -3683,9 +3681,10 @@ section1 {
 }
 
 
+/* 見出し */
+
 .footer-links h3,
 .footer-contact h3 {
-
     margin: 0 0 20px;
 
     padding: 0;
@@ -3697,15 +3696,20 @@ section1 {
     font-size: 13px;
 
     letter-spacing: 3px;
+
+    line-height: 1.4;
 }
 
 
+/* リンク */
+
 .footer-links a,
 .footer-contact a {
-
     position: relative;
 
     display: inline-block;
+
+    max-width: 100%;
 
     margin: 6px 0;
 
@@ -3713,7 +3717,11 @@ section1 {
 
     font-size: 14px;
 
+    line-height: 1.6;
+
     text-decoration: none;
+
+    overflow-wrap: anywhere;
 
     transition:
         color .25s ease,
@@ -3721,11 +3729,10 @@ section1 {
 }
 
 
-/* ホバー時のライン */
+/* ホバーライン */
 
 .footer-links a::after,
 .footer-contact a::after {
-
     content: "";
 
     position: absolute;
@@ -3747,9 +3754,10 @@ section1 {
 }
 
 
+/* ホバー */
+
 .footer-links a:hover,
 .footer-contact a:hover {
-
     color: white;
 
     transform: translateX(5px);
@@ -3758,7 +3766,6 @@ section1 {
 
 .footer-links a:hover::after,
 .footer-contact a:hover::after {
-
     transform: scaleX(1);
 }
 
@@ -3768,9 +3775,7 @@ section1 {
 ========================================================= */
 
 .footer-bottom {
-
     position: relative;
-
     z-index: 1;
 
     width: min(1200px, 100%);
@@ -3779,17 +3784,73 @@ section1 {
 
     padding-top: 20px;
 
+    box-sizing: border-box;
+
     display: flex;
+
+    align-items: center;
 
     justify-content: space-between;
 
-    border-top: 1px solid rgba(255,255,255,.12);
+    gap: 20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.12);
 
     color: rgba(255,255,255,.35);
 
     font-size: 11px;
 
+    line-height: 1.6;
+
     letter-spacing: 2px;
+}
+
+
+.footer-bottom > * {
+    margin: 0;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .site-footer {
+        padding:
+            70px 5% 25px;
+    }
+
+
+    .footer-inner {
+        grid-template-columns:
+            1.5fr 1fr 1fr;
+
+        gap: 35px;
+    }
+
+
+    .footer-tagline {
+        margin-bottom: 20px;
+    }
+
+
+    .footer-copy {
+        font-size: 13px;
+    }
+
+
+    .footer-links a,
+    .footer-contact a {
+        font-size: 13px;
+    }
+
+
+    .footer-bottom {
+        margin-top: 55px;
+    }
 }
 
 
@@ -3800,11 +3861,19 @@ section1 {
 @media (max-width: 700px) {
 
     .site-footer {
-        padding: 80px 6% 25px;
+        width: 100%;
+
+        margin-top: 80px;
+
+        padding:
+            60px 25px 20px;
     }
 
 
+    /* 3列 → 1列 */
+
     .footer-inner {
+        width: 100%;
 
         grid-template-columns: 1fr;
 
@@ -3812,32 +3881,100 @@ section1 {
     }
 
 
-    .footer-logo {
+    /* Brand */
 
-        font-size: 48px;
+    .footer-tagline {
+        margin:
+            12px 0 20px;
 
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .footer-copy {
+        font-size: 13px;
+
+        line-height: 1.9;
+    }
+
+
+    /* Links */
+
+    .footer-links,
+    .footer-contact {
+        width: 100%;
+    }
+
+
+    .footer-links h3,
+    .footer-contact h3 {
+        margin-bottom: 15px;
+
+        font-size: 12px;
+    }
+
+
+    .footer-links a,
+    .footer-contact a {
+        margin: 5px 0;
+
+        font-size: 13px;
+    }
+
+
+    /* Bottom */
+
+    .footer-bottom {
+        width: 100%;
+
+        margin-top: 50px;
+
+        padding-top: 18px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .site-footer {
+        padding:
+            50px 20px 18px;
+    }
+
+
+    .footer-inner {
+        gap: 35px;
+    }
+
+
+    .footer-copy {
+        font-size: 12px;
+    }
+
+
+    .footer-links a,
+    .footer-contact a {
+        font-size: 12px;
     }
 
 
     .footer-bottom {
-
-        margin-top: 50px;
-
-        flex-direction: column;
-
-        gap: 10px;
-
+        font-size: 9px;
     }
-
-
-    .site-footer::after {
-
-        font-size: 120px;
-
-        right: -20px;
-
-        bottom: -30px;
-
-    }
-
 }
