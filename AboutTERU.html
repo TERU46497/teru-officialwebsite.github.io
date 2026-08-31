@@ -342,9 +342,63 @@
                 <h2 id="timeline-title">タイムライン</h2>
             </div>
 
-            <div class="timeline-sort" role="group" aria-label="タイムラインの表示順">
-                <button class="timeline-sort-button is-active" type="button" data-timeline-order="desc" aria-pressed="true">新しい順</button>
-                <button class="timeline-sort-button" type="button" data-timeline-order="asc" aria-pressed="false">古い順</button>
+            <div class="timeline-controls">
+
+                <div class="timeline-sort" role="group" aria-label="タイムラインの表示順">
+                    <button class="timeline-sort-button is-active"
+                            type="button"
+                            data-timeline-order="desc"
+                            aria-pressed="true">
+                        新しい順
+                    </button>
+
+                    <button class="timeline-sort-button"
+                            type="button"
+                            data-timeline-order="asc"
+                            aria-pressed="false">
+                        古い順
+                    </button>
+                </div>
+
+                <div class="timeline-key">
+
+                    <div class="timeline-key-card">
+                        <span>MUSIC</span>
+                        <i class="timeline-key-icon timeline-key--music"></i>
+                    </div>
+
+                    <div class="timeline-key-card">
+                        <span>ANIMATION</span>
+                        <i class="timeline-key-icon timeline-key--animation"></i>
+                    </div>
+
+                    <div class="timeline-key-card">
+                        <span>PRODUCT</span>
+                        <i class="timeline-key-icon timeline-key--product"></i>
+                    </div>
+
+                    <div class="timeline-key-card">
+                        <span>EVENT</span>
+                        <i class="timeline-key-icon timeline-key--event"></i>
+                    </div>
+
+                    <div class="timeline-key-card">
+                        <span>VIDEO</span>
+                        <i class="timeline-key-icon timeline-key--video"></i>
+                    </div>
+
+                    <div class="timeline-key-card">
+                        <span>MODELING</span>
+                        <i class="timeline-key-icon timeline-key--modeling"></i>
+                    </div>
+
+                    <div class="timeline-key-card">
+                        <span>GAME</span>
+                        <i class="timeline-key-icon timeline-key--game"></i>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 
@@ -409,8 +463,40 @@ const timelineEvents = [
     {
         date: "2026-03-02",
         type: "event",
-        title: "EP『After the Rain』リリース",
-        detail: "雨上がりの街の空気をモチーフにした、全5曲のミニアルバムです。",
+        title: "パソコンを購入",
+        detail: "ここから全てが始まった。",
+        image: "",
+        link: ""
+    },
+    {
+        date: "2026-03-02",
+        type: "music",
+        title: "音楽理論を学び、作曲を始める",
+        detail: "ここから全てが始まった。",
+        image: "",
+        link: ""
+    },
+    {
+        date: "2026-03-06",
+        type: "game",
+        title: "Unreal Engineを始める",
+        detail: "ここから全てが始まった。",
+        image: "",
+        link: ""
+    },
+    {
+        date: "2026-03-04",
+        type: "modeling",
+        title: "Blenderを始める",
+        detail: "ここから全てが始まった。",
+        image: "",
+        link: ""
+    },
+    {
+        date: "2026-03-01",
+        type: "event",
+        title: "VRChatを始める",
+        detail: "ここから全てが始まった。",
         image: "",
         link: ""
     }
@@ -420,7 +506,10 @@ const timelineTypeLabels = {
     music: "MUSIC",
     animation: "ANIMATION",
     product: "PRODUCT",
-    event: "EVENT"
+    event: "EVENT",
+    video: "VIDEO",
+    modeling: "3D MODELING",
+    game: "GAME DEVELOPMENT"
 };
 
 const timelineList = document.querySelector("#timeline-list");
