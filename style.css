@@ -4054,6 +4054,8 @@ section1 {
 .timeline-item--music { --timeline-color: #8059d6; }
 .timeline-item--animation { --timeline-color: #37a876; }
 .timeline-item--product { --timeline-color: #ef8d3d; }
+.timeline-item--event { --timeline-color: #111; }
+.timeline-item--video { --timeline-color: #6ba6ff; }
 
 .timeline-marker {
     grid-column: 2;

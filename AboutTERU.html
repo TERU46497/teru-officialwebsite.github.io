@@ -307,7 +307,7 @@
                 CREATIONS
             </span>
 
-            <h2>制作したもの</h2>
+            <h2>商品</h2>
 
             <p>
                 BOOTHでは、これまでに制作した3Dモデルなどの<br>
@@ -338,7 +338,7 @@
     <section class="timeline-section fade-section" aria-labelledby="timeline-title">
         <div class="timeline-heading fade-item fade-text">
             <div>
-                <span class="about-label">ACTIVITY LOG</span>
+                <span class="about-label">Timeline</span>
                 <h2 id="timeline-title">タイムライン</h2>
             </div>
 
@@ -391,24 +391,24 @@ targets.forEach(target => {
 <script>
 const timelineEvents = [
     {
-        date: "2026-08-21",
-        type: "product",
-        title: "新しいプロダクトを公開",
-        detail: "日常の小さな選択を、少しだけ心地よくするプロダクトをリリースしました。",
+        date: "2009-01-28",
+        type: "event",
+        title: "この世に誕生",
+        detail: "ニューヨークで生まれました。",
         image: "",
         link: ""
     },
     {
-        date: "2026-06-14",
-        type: "animation",
-        title: "Short Animation / Bloom",
-        detail: "光とリズムの揺らぎをテーマにした短編アニメーションを制作しました。",
+        date: "2020-08-22",
+        type: "video",
+        title: "動画制作を始める",
+        detail: "ここから動画編集をし、YouTuberごっこを3年程日本にいる家族に向けて始める。微笑ましいね。",
         image: "",
         link: ""
     },
     {
         date: "2026-03-02",
-        type: "music",
+        type: "event",
         title: "EP『After the Rain』リリース",
         detail: "雨上がりの街の空気をモチーフにした、全5曲のミニアルバムです。",
         image: "",
@@ -419,7 +419,8 @@ const timelineEvents = [
 const timelineTypeLabels = {
     music: "MUSIC",
     animation: "ANIMATION",
-    product: "PRODUCT"
+    product: "PRODUCT",
+    event: "EVENT"
 };
 
 const timelineList = document.querySelector("#timeline-list");
